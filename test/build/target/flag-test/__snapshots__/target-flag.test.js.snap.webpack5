@@ -10,7 +10,29 @@ Select an appropriate 'target' to allow selecting one by default, or specify the
     at stack"
 `;
 
-exports[`--target flag should throw an error for incompatible multiple targets: stdout 1`] = `""`;
+exports[`--target flag should throw an error for incompatible multiple targets: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--target',
+  'node',
+  '--target',
+  'web'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
 
 exports[`--target flag should throw an error for invalid target in multiple syntax: stderr 1`] = `
 "[webpack-cli] Error: Unknown target 'invalid'. The following targets are supported:
@@ -24,14 +46,55 @@ exports[`--target flag should throw an error for invalid target in multiple synt
     at stack"
 `;
 
-exports[`--target flag should throw an error for invalid target in multiple syntax: stdout 1`] = `""`;
+exports[`--target flag should throw an error for invalid target in multiple syntax: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--target',
+  'node',
+  '--target',
+  'invalid'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
 
 exports[`--target flag should throw error if target is an empty array: stderr 1`] = `
 "[webpack-cli] Invalid configuration object. Webpack has been initialized using a configuration object that does not match the API schema.
  - configuration.target should be a non-empty array."
 `;
 
-exports[`--target flag should throw error if target is an empty array: stdout 1`] = `""`;
+exports[`--target flag should throw error if target is an empty array: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--target-reset'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
 
 exports[`--target flag should throw error with invalid value for --target: stderr 1`] = `
 "[webpack-cli] Error: Unknown target 'invalid'. The following targets are supported:
@@ -45,4 +108,24 @@ exports[`--target flag should throw error with invalid value for --target: stder
     at stack"
 `;
 
-exports[`--target flag should throw error with invalid value for --target: stdout 1`] = `""`;
+exports[`--target flag should throw error with invalid value for --target: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--target',
+  'invalid'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
