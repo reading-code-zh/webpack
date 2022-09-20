@@ -2,4 +2,19 @@
 
 exports[`'configtest' command without the configuration path option should validate default configuration: stderr 1`] = `"[webpack-cli] No configuration found."`;
 
-exports[`'configtest' command without the configuration path option should validate default configuration: stdout 1`] = `""`;
+exports[`'configtest' command without the configuration path option should validate default configuration: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'configtest'
+]
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false"
+`;

@@ -5,4 +5,23 @@ exports[`output flag named bundles should output file in bin directory using def
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`output flag named bundles should output file in bin directory using default webpack config with warning for empty output value: stdout 1`] = `""`;
+exports[`output flag named bundles should output file in bin directory using default webpack config with warning for empty output value: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--output-path'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;

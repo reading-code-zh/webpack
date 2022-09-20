@@ -8,4 +8,24 @@ exports[`--hot flag should be successful when --no-hot is passed: stderr 1`] = `
 
 exports[`--hot flag should throw an error for invalid value: stderr 1`] = `"[webpack-cli] 'unknown' is an invalid value for the --hot option. Use 'only' instead."`;
 
-exports[`--hot flag should throw an error for invalid value: stdout 1`] = `""`;
+exports[`--hot flag should throw an error for invalid value: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--hot',
+  'unknown'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;

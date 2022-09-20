@@ -3,6 +3,34 @@
 exports[`CLI API custom help output should display help information 1`] = `
 Array [
   Array [
+    "commandName",
+    "build",
+    Object {
+      "alias": Array [
+        "bundle",
+        "b",
+      ],
+      "dependencies": Array [
+        "webpack",
+      ],
+      "description": "Run webpack (default command, can be omitted).",
+      "name": "build [entries...]",
+      "usage": "[entries...] [options]",
+    },
+  ],
+  Array [
+    "isWatchCommandUsed",
+    false,
+    true,
+  ],
+  Array [
+    "this.webpack.cli",
+    Object {
+      "getArguments": [Function],
+      "processArguments": [Function],
+    },
+  ],
+  Array [
     "[1mUsage[22m: webpack --color [value]",
   ],
   Array [
@@ -26,6 +54,27 @@ Array [
   ],
   Array [
     "[1mMade with ♥ by the webpack team[22m.",
+  ],
+  Array [
+    "commandName",
+    "help",
+    Object {
+      "alias": Array [
+        "bundle",
+        "b",
+      ],
+      "dependencies": Array [
+        "webpack",
+      ],
+      "description": "Run webpack (default command, can be omitted).",
+      "name": "build [entries...]",
+      "usage": "[entries...] [options]",
+    },
+  ],
+  Array [
+    "isWatchCommandUsed",
+    false,
+    false,
   ],
 ]
 `;

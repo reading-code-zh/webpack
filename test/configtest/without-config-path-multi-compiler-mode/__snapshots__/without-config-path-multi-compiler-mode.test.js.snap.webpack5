@@ -3,6 +3,20 @@
 exports[`'configtest' command without the configuration path option should validate default configuration: stderr 1`] = `""`;
 
 exports[`'configtest' command without the configuration path option should validate default configuration: stdout 1`] = `
-"[webpack-cli] Validate '<cwd>/test/configtest/without-config-path-multi-compiler-mode/webpack.config.js'.
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'configtest'
+]
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+[webpack-cli] Validate '<cwd>/test/configtest/without-config-path-multi-compiler-mode/webpack.config.js'.
 [webpack-cli] There are no validation errors in the given webpack configuration."
 `;

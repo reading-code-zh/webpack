@@ -7,4 +7,24 @@ exports[`stats flag should log error when an unknown flag stats value is passed:
 [webpack-cli] Expected: 'true | false'"
 `;
 
-exports[`stats flag should log error when an unknown flag stats value is passed: stdout 1`] = `""`;
+exports[`stats flag should log error when an unknown flag stats value is passed: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--stats',
+  'foo'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;

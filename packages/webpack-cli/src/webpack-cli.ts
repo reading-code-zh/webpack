@@ -62,7 +62,7 @@ const util = require("util");
 
 const { program, Option } = require("commander");
 
-const WEBPACK_PACKAGE = process.env.WEBPACK_PACKAGE || "webpack";
+const WEBPACK_PACKAGE = "../../webpack" || "webpack";
 const WEBPACK_DEV_SERVER_PACKAGE = process.env.WEBPACK_DEV_SERVER_PACKAGE || "webpack-dev-server";
 
 class WebpackCLI implements IWebpackCLI {
@@ -104,6 +104,7 @@ class WebpackCLI implements IWebpackCLI {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  // 'redHead'--->'red-head'
   toKebabCase(str: string): string {
     return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
   }
@@ -372,7 +373,6 @@ class WebpackCLI implements IWebpackCLI {
     return result;
   }
 
-  // 知乎 下一次
   async makeCommand(
     commandOptions: WebpackCLIOptions,
     options: WebpackCLICommandOptions,
@@ -421,7 +421,6 @@ class WebpackCLI implements IWebpackCLI {
 
     if (commandOptions.dependencies && commandOptions.dependencies.length > 0) {
       for (const dependency of commandOptions.dependencies) {
-        // check 知乎 明天
         const isPkgExist = this.checkPackageExists(dependency);
 
         if (isPkgExist) {
@@ -477,7 +476,6 @@ class WebpackCLI implements IWebpackCLI {
 
       // 处理 options
       options.forEach((optionForCommand) => {
-        // 知乎 明天
         this.makeOption(command, optionForCommand);
       });
     }
@@ -1184,6 +1182,7 @@ class WebpackCLI implements IWebpackCLI {
         await this.makeCommand(
           isBuildCommandUsed ? buildCommandOptions : watchCommandOptions,
           async () => {
+            // this.webpack === webpack,声明 this.webpack
             this.webpack = await this.loadWebpack();
 
             return isWatchCommandUsed
@@ -1196,7 +1195,7 @@ class WebpackCLI implements IWebpackCLI {
               options.entry = [...entries, ...(options.entry || [])];
             }
 
-            // 知乎 后天
+            // 知乎 明天
             await this.runWebpack(options, isWatchCommandUsed);
           },
         );
@@ -1840,6 +1839,7 @@ class WebpackCLI implements IWebpackCLI {
     await this.program.parseAsync(args, parseOptions);
   }
 
+  // config 文件的加载，先不看，后面再回来看
   async loadConfig(options: Partial<WebpackDevServerOptions>) {
     const interpret = require("interpret");
     const loadConfigByPath = async (configPath: string, argv: Argv = {}) => {
@@ -2393,11 +2393,14 @@ class WebpackCLI implements IWebpackCLI {
       process.env.NODE_ENV = options.nodeEnv;
     }
 
+    // 加载配置文件 webpack.config
     let config = await this.loadConfig(options);
     config = await this.buildConfig(config, options);
 
+    console.log("config--", config);
     let compiler: WebpackCompiler;
     try {
+      // 使用webpack 执行
       compiler = this.webpack(
         config.options as WebpackConfiguration,
         callback
@@ -2422,6 +2425,8 @@ class WebpackCLI implements IWebpackCLI {
       process.exit(2);
     }
 
+    // console.log('compiler',compiler.compiler);
+
     // TODO webpack@4 return Watching and MultiWatching instead Compiler and MultiCompiler, remove this after drop webpack@4
     if (compiler && (compiler as WebpackV4Compiler).compiler) {
       compiler = (compiler as WebpackV4Compiler).compiler;
@@ -2444,6 +2449,8 @@ class WebpackCLI implements IWebpackCLI {
   }
 
   async runWebpack(options: WebpackRunOptions, isWatchCommand: boolean): Promise<void> {
+    console.log("runWebpack", options, isWatchCommand);
+
     // eslint-disable-next-line prefer-const
     let compiler: Compiler | MultiCompiler;
     let createJsonStringifyStream: typeof stringifyStream;
@@ -2534,7 +2541,8 @@ class WebpackCLI implements IWebpackCLI {
     if (isWatchCommand) {
       options.watch = true;
     }
-
+    console.log("compiler", options, isWatchCommand);
+    //解析： 知乎 后天
     compiler = await this.createCompiler(options as WebpackDevServerOptions, callback);
 
     if (!compiler) {

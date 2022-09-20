@@ -6,7 +6,16 @@ exports[`help should log error for invalid command using command syntax #3: stde
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for invalid command using command syntax #3: stdout 1`] = `""`;
+exports[`help should log error for invalid command using command syntax #3: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--mode',
+  'serve'
+]"
+`;
 
 exports[`help should log error for invalid command using command syntax #4: stderr 1`] = `
 "[webpack-cli] Incorrect use of help
@@ -14,7 +23,17 @@ exports[`help should log error for invalid command using command syntax #4: stde
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for invalid command using command syntax #4: stdout 1`] = `""`;
+exports[`help should log error for invalid command using command syntax #4: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'serve',
+  '--mode',
+  '--mode'
+]"
+`;
 
 exports[`help should log error for invalid command using the "--help" option #2: stderr 1`] = `
 "[webpack-cli] Incorrect use of help
@@ -22,7 +41,15 @@ exports[`help should log error for invalid command using the "--help" option #2:
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for invalid command using the "--help" option #2: stdout 1`] = `""`;
+exports[`help should log error for invalid command using the "--help" option #2: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--flag',
+  '--help'
+]"
+`;
 
 exports[`help should log error for invalid command using the "--help" option #3: stderr 1`] = `
 "[webpack-cli] Incorrect use of help
@@ -30,17 +57,43 @@ exports[`help should log error for invalid command using the "--help" option #3:
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for invalid command using the "--help" option #3: stdout 1`] = `""`;
+exports[`help should log error for invalid command using the "--help" option #3: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'serve',
+  '--flag',
+  '--help'
+]"
+`;
 
 exports[`help should log error for invalid command using the "--help" option: stderr 1`] = `"[webpack-cli] Unknown value for '--help' option, please use '--help=verbose'"`;
 
-exports[`help should log error for invalid command using the "--help" option: stdout 1`] = `""`;
+exports[`help should log error for invalid command using the "--help" option: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--help',
+  'myCommand'
+]"
+`;
 
 exports[`help should log error for invalid flag with the "--help" option #2 1`] = `"[webpack-cli] Unknown value for '--help' option, please use '--help=verbose'"`;
 
 exports[`help should log error for invalid flag with the "--help" option #2: stderr 1`] = `"[webpack-cli] Unknown value for '--help' option, please use '--help=verbose'"`;
 
-exports[`help should log error for invalid flag with the "--help" option #2: stdout 1`] = `""`;
+exports[`help should log error for invalid flag with the "--help" option #2: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--help',
+  'init',
+  'info'
+]"
+`;
 
 exports[`help should log error for invalid flag with the "--help" option: stderr 1`] = `
 "[webpack-cli] Incorrect use of help
@@ -48,47 +101,244 @@ exports[`help should log error for invalid flag with the "--help" option: stderr
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for invalid flag with the "--help" option: stdout 1`] = `""`;
+exports[`help should log error for invalid flag with the "--help" option: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--help',
+  '--my-flag'
+]"
+`;
 
 exports[`help should log error for unknown command using command syntax #2: stderr 1`] = `
 "[webpack-cli] Can't find and load command 'verbose'
 [webpack-cli] Run 'webpack --help' to see available commands and options."
 `;
 
-exports[`help should log error for unknown command using command syntax #2: stdout 1`] = `""`;
+exports[`help should log error for unknown command using command syntax #2: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'verbose'
+]
+commandName verbose {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false"
+`;
 
 exports[`help should log error for unknown command using command syntax: stderr 1`] = `
 "[webpack-cli] Can't find and load command 'myCommand'
 [webpack-cli] Run 'webpack --help' to see available commands and options."
 `;
 
-exports[`help should log error for unknown command using command syntax: stdout 1`] = `""`;
+exports[`help should log error for unknown command using command syntax: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'myCommand'
+]
+commandName myCommand {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false"
+`;
 
 exports[`help should log error for unknown option using command syntax #2: stderr 1`] = `
 "[webpack-cli] Unknown option '--made'
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for unknown option using command syntax #2: stdout 1`] = `""`;
+exports[`help should log error for unknown option using command syntax #2: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--made'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
 
 exports[`help should log error for unknown option using command syntax #3: stderr 1`] = `
 "[webpack-cli] Unknown option '--made'
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for unknown option using command syntax #3: stdout 1`] = `""`;
+exports[`help should log error for unknown option using command syntax #3: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'serve',
+  '--made'
+]
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
 
 exports[`help should log error for unknown option using command syntax #4: stderr 1`] = `
 "[webpack-cli] Can't find and load command 'bui'
 [webpack-cli] Run 'webpack --help' to see available commands and options"
 `;
 
-exports[`help should log error for unknown option using command syntax #4: stdout 1`] = `""`;
+exports[`help should log error for unknown option using command syntax #4: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'bui',
+  '--mode'
+]
+commandName bui {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false"
+`;
 
 exports[`help should show help information and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--help',
+  '--color'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+commandName version {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName help {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack [entries...] [options]
 Alternative usage to run commands: webpack [command] [options]
 
 The build tool for modern web applications.
@@ -145,7 +395,106 @@ Made with ♥ by the webpack team."
 exports[`help should show help information and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--help',
+  '--no-color'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+commandName version {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName help {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack [entries...] [options]
 Alternative usage to run commands: webpack [command] [options]
 
 The build tool for modern web applications.
@@ -202,7 +551,106 @@ Made with ♥ by the webpack team."
 exports[`help should show help information and taking precedence when "--help" and "--version" option using together: stderr 1`] = `""`;
 
 exports[`help should show help information and taking precedence when "--help" and "--version" option using together: stdout 1`] = `
-"Usage: webpack [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--help',
+  '--version'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+commandName version {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName help {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack [entries...] [options]
 Alternative usage to run commands: webpack [command] [options]
 
 The build tool for modern web applications.
@@ -259,7 +707,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'b' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'b' command using command syntax: stdout 1`] = `
-"Usage: webpack build|bundle|b [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'b'
+]
+commandName b {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack build|bundle|b [entries...] [options]
 
 Run webpack (default command, can be omitted).
 
@@ -302,7 +769,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'b' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'b' command using the "--help" option: stdout 1`] = `
-"Usage: webpack build|bundle|b [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'b',
+  '--help'
+]
+commandName b {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack build|bundle|b [entries...] [options]
 
 Run webpack (default command, can be omitted).
 
@@ -345,7 +831,27 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'build' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'build' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack build|bundle|b [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'build',
+  '--help',
+  '--color'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack build|bundle|b [entries...] [options]
 
 Run webpack (default command, can be omitted).
 
@@ -397,7 +903,27 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'build' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'build' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack build|bundle|b [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'build',
+  '--help',
+  '--no-color'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack build|bundle|b [entries...] [options]
 
 Run webpack (default command, can be omitted).
 
@@ -449,7 +975,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'build' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'build' command using command syntax: stdout 1`] = `
-"Usage: webpack build|bundle|b [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'build'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack build|bundle|b [entries...] [options]
 
 Run webpack (default command, can be omitted).
 
@@ -492,7 +1037,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'build' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'build' command using the "--help" option: stdout 1`] = `
-"Usage: webpack build|bundle|b [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'build',
+  '--help'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack build|bundle|b [entries...] [options]
 
 Run webpack (default command, can be omitted).
 
@@ -535,7 +1099,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'c' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'c' command using command syntax: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'c'
+]
+commandName c {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -562,7 +1141,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'c' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'c' command using the "--help" option: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'c',
+  '--help'
+]
+commandName c {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -589,7 +1183,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'configtest' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'configtest' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack configtest|t [config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'configtest',
+  '--help',
+  '--color'
+]
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack configtest|t [config-path]
 
 Validate a webpack configuration.
 
@@ -610,7 +1220,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'configtest' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'configtest' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack configtest|t [config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'configtest',
+  '--help',
+  '--no-color'
+]
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack configtest|t [config-path]
 
 Validate a webpack configuration.
 
@@ -631,7 +1257,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'configtest' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'configtest' command using command syntax: stdout 1`] = `
-"Usage: webpack configtest|t [config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'configtest'
+]
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack configtest|t [config-path]
 
 Validate a webpack configuration.
 
@@ -651,7 +1292,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'configtest' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'configtest' command using the "--help" option: stdout 1`] = `
-"Usage: webpack configtest|t [config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'configtest',
+  '--help'
+]
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack configtest|t [config-path]
 
 Validate a webpack configuration.
 
@@ -671,7 +1327,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'create' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'create' command using command syntax: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'create'
+]
+commandName create {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -698,7 +1369,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'create' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'create' command using the "--help" option: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'create',
+  '--help'
+]
+commandName create {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -725,7 +1411,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'i' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'i' command using command syntax: stdout 1`] = `
-"Usage: webpack info|i [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'i'
+]
+commandName i {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack info|i [options]
 
 Outputs information about your system.
 
@@ -749,7 +1450,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'i' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'i' command using the "--help" option: stdout 1`] = `
-"Usage: webpack info|i [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'i',
+  '--help'
+]
+commandName i {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack info|i [options]
 
 Outputs information about your system.
 
@@ -773,7 +1489,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'info' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'info' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack info|i [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'info',
+  '--help',
+  '--color'
+]
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack info|i [options]
 
 Outputs information about your system.
 
@@ -800,7 +1532,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'info' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'info' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack info|i [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'info',
+  '--help',
+  '--no-color'
+]
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack info|i [options]
 
 Outputs information about your system.
 
@@ -827,7 +1575,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'info' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'info' command using command syntax: stdout 1`] = `
-"Usage: webpack info|i [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'info'
+]
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack info|i [options]
 
 Outputs information about your system.
 
@@ -851,7 +1614,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'info' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'info' command using the "--help" option: stdout 1`] = `
-"Usage: webpack info|i [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'info',
+  '--help'
+]
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack info|i [options]
 
 Outputs information about your system.
 
@@ -875,7 +1653,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'init' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'init' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'init',
+  '--help',
+  '--color'
+]
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -905,7 +1699,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'init' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'init' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'init',
+  '--help',
+  '--no-color'
+]
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -935,7 +1745,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'init' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'init' command using command syntax: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'init'
+]
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -962,7 +1787,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'init' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'init' command using the "--help" option: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'init',
+  '--help'
+]
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -989,7 +1829,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'l' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'l' command using command syntax: stdout 1`] = `
-"Usage: webpack loader|l [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'l'
+]
+commandName l {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack loader|l [output-path] [options]
 
 Scaffold a loader.
 
@@ -1015,7 +1870,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'l' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'l' command using the "--help" option: stdout 1`] = `
-"Usage: webpack loader|l [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'l',
+  '--help'
+]
+commandName l {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack loader|l [output-path] [options]
 
 Scaffold a loader.
 
@@ -1041,7 +1911,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'loader' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'loader' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack loader|l [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'loader',
+  '--help',
+  '--color'
+]
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack loader|l [output-path] [options]
 
 Scaffold a loader.
 
@@ -1068,7 +1954,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'loader' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'loader' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack loader|l [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'loader',
+  '--help',
+  '--no-color'
+]
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack loader|l [output-path] [options]
 
 Scaffold a loader.
 
@@ -1095,7 +1997,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'loader' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'loader' command using command syntax: stdout 1`] = `
-"Usage: webpack loader|l [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'loader'
+]
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack loader|l [output-path] [options]
 
 Scaffold a loader.
 
@@ -1121,7 +2038,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'loader' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'loader' command using the "--help" option: stdout 1`] = `
-"Usage: webpack loader|l [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'loader',
+  '--help'
+]
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack loader|l [output-path] [options]
 
 Scaffold a loader.
 
@@ -1147,7 +2079,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'm' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'm' command using command syntax: stdout 1`] = `
-"Usage: webpack migrate|m <config-path> [new-config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'm'
+]
+commandName m {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack migrate|m <config-path> [new-config-path]
 
 Migrate a configuration to a new version.
 
@@ -1167,7 +2114,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'm' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'm' command using the "--help" option: stdout 1`] = `
-"Usage: webpack migrate|m <config-path> [new-config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'm',
+  '--help'
+]
+commandName m {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack migrate|m <config-path> [new-config-path]
 
 Migrate a configuration to a new version.
 
@@ -1187,7 +2149,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'migrate' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'migrate' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack migrate|m <config-path> [new-config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'migrate',
+  '--help',
+  '--color'
+]
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack migrate|m <config-path> [new-config-path]
 
 Migrate a configuration to a new version.
 
@@ -1208,7 +2186,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'migrate' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'migrate' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack migrate|m <config-path> [new-config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'migrate',
+  '--help',
+  '--no-color'
+]
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack migrate|m <config-path> [new-config-path]
 
 Migrate a configuration to a new version.
 
@@ -1229,7 +2223,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'migrate' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'migrate' command using command syntax: stdout 1`] = `
-"Usage: webpack migrate|m <config-path> [new-config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'migrate'
+]
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack migrate|m <config-path> [new-config-path]
 
 Migrate a configuration to a new version.
 
@@ -1249,7 +2258,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'migrate' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'migrate' command using the "--help" option: stdout 1`] = `
-"Usage: webpack migrate|m <config-path> [new-config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'migrate',
+  '--help'
+]
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack migrate|m <config-path> [new-config-path]
 
 Migrate a configuration to a new version.
 
@@ -1269,7 +2293,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'n' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'n' command using command syntax: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'n'
+]
+commandName n {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -1296,7 +2335,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'n' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'n' command using the "--help" option: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'n',
+  '--help'
+]
+commandName n {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -1323,7 +2377,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'new' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'new' command using command syntax: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'new'
+]
+commandName new {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -1350,7 +2419,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'new' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'new' command using the "--help" option: stdout 1`] = `
-"Usage: webpack init|create|new|c|n [generation-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'new',
+  '--help'
+]
+commandName new {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack init|create|new|c|n [generation-path] [options]
 
 Initialize a new webpack project.
 
@@ -1377,7 +2461,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'p' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'p' command using command syntax: stdout 1`] = `
-"Usage: webpack plugin|p [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'p'
+]
+commandName p {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack plugin|p [output-path] [options]
 
 Scaffold a plugin.
 
@@ -1403,7 +2502,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'p' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'p' command using the "--help" option: stdout 1`] = `
-"Usage: webpack plugin|p [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'p',
+  '--help'
+]
+commandName p {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack plugin|p [output-path] [options]
 
 Scaffold a plugin.
 
@@ -1429,7 +2543,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'plugin' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'plugin' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack plugin|p [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'plugin',
+  '--help',
+  '--color'
+]
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack plugin|p [output-path] [options]
 
 Scaffold a plugin.
 
@@ -1456,7 +2586,23 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'plugin' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'plugin' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack plugin|p [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'plugin',
+  '--help',
+  '--no-color'
+]
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack plugin|p [output-path] [options]
 
 Scaffold a plugin.
 
@@ -1483,7 +2629,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'plugin' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'plugin' command using command syntax: stdout 1`] = `
-"Usage: webpack plugin|p [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'plugin'
+]
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack plugin|p [output-path] [options]
 
 Scaffold a plugin.
 
@@ -1509,7 +2670,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'plugin' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'plugin' command using the "--help" option: stdout 1`] = `
-"Usage: webpack plugin|p [output-path] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'plugin',
+  '--help'
+]
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack plugin|p [output-path] [options]
 
 Scaffold a plugin.
 
@@ -1551,7 +2727,22 @@ exports[`help should show help information for 'server' command using the "--hel
 exports[`help should show help information for 't' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 't' command using command syntax: stdout 1`] = `
-"Usage: webpack configtest|t [config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  't'
+]
+commandName t {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack configtest|t [config-path]
 
 Validate a webpack configuration.
 
@@ -1571,7 +2762,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 't' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 't' command using the "--help" option: stdout 1`] = `
-"Usage: webpack configtest|t [config-path]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  't',
+  '--help'
+]
+commandName t {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack configtest|t [config-path]
 
 Validate a webpack configuration.
 
@@ -1591,7 +2797,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'w' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'w' command using command syntax: stdout 1`] = `
-"Usage: webpack watch|w [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'w'
+]
+commandName w {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack watch|w [entries...] [options]
 
 Run webpack and watch for files changes.
 
@@ -1632,7 +2857,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'w' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'w' command using the "--help" option: stdout 1`] = `
-"Usage: webpack watch|w [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'w',
+  '--help'
+]
+commandName w {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack watch|w [entries...] [options]
 
 Run webpack and watch for files changes.
 
@@ -1673,7 +2917,27 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'watch' and respect the "--color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'watch' and respect the "--color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack watch|w [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'watch',
+  '--help',
+  '--color'
+]
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack watch|w [entries...] [options]
 
 Run webpack and watch for files changes.
 
@@ -1723,7 +2987,27 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'watch' and respect the "--no-color" flag using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'watch' and respect the "--no-color" flag using the "--help" option: stdout 1`] = `
-"Usage: webpack watch|w [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'watch',
+  '--help',
+  '--no-color'
+]
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack watch|w [entries...] [options]
 
 Run webpack and watch for files changes.
 
@@ -1773,7 +3057,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'watch' command using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information for 'watch' command using command syntax: stdout 1`] = `
-"Usage: webpack watch|w [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'watch'
+]
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack watch|w [entries...] [options]
 
 Run webpack and watch for files changes.
 
@@ -1814,7 +3117,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information for 'watch' command using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information for 'watch' command using the "--help" option: stdout 1`] = `
-"Usage: webpack watch|w [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'watch',
+  '--help'
+]
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack watch|w [entries...] [options]
 
 Run webpack and watch for files changes.
 
@@ -1855,7 +3177,105 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using command syntax: stderr 1`] = `""`;
 
 exports[`help should show help information using command syntax: stdout 1`] = `
-"Usage: webpack [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+commandName version {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName help {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack [entries...] [options]
 Alternative usage to run commands: webpack [command] [options]
 
 The build tool for modern web applications.
@@ -1912,7 +3332,105 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "--help" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "--help" option: stdout 1`] = `
-"Usage: webpack [entries...] [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  '--help'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+commandName watch {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed true false
+commandName version {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName help {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName init {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName loader {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName plugin {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName migrate {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+commandName configtest {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack [entries...] [options]
 Alternative usage to run commands: webpack [command] [options]
 
 The build tool for modern web applications.
@@ -1969,7 +3487,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --cache-type" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --cache-type" option: stdout 1`] = `
-"Usage: webpack --cache-type <value>
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--cache-type'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --cache-type <value>
 Description: In memory caching. Filesystem caching.
 Possible values: \\"memory | filesystem\\"
 
@@ -1983,7 +3520,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --color" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --color" option: stdout 1`] = `
-"Usage: webpack --color
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--color'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --color
 Description: Enable colors on console.
 
 To see list of all supported commands and options run 'webpack --help=verbose'.
@@ -1996,7 +3552,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --mode" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --mode" option: stdout 1`] = `
-"Usage: webpack --mode <value>
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--mode'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --mode <value>
 Description: Defines the mode to pass to webpack.
 Possible values: \\"development | production | none\\"
 
@@ -2010,7 +3585,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --no-color" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --no-color" option: stdout 1`] = `
-"Usage: webpack --no-color
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--no-color'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --no-color
 Description: Disable colors on console.
 
 To see list of all supported commands and options run 'webpack --help=verbose'.
@@ -2023,7 +3617,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --no-stats" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --no-stats" option: stdout 1`] = `
-"Usage: webpack --no-stats
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--no-stats'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --no-stats
 Description: Disable stats output.
 
 To see list of all supported commands and options run 'webpack --help=verbose'.
@@ -2036,7 +3649,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --stats" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --stats" option: stdout 1`] = `
-"Usage: webpack --stats [value]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--stats'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --stats [value]
 Description: It instructs webpack on how to treat the stats e.g. verbose.
 Possible values: \\"none | summary | errors-only | errors-warnings | minimal | normal | detailed | verbose\\"
 
@@ -2050,7 +3682,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --target" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --target" option: stdout 1`] = `
-"Usage: webpack --target <value...>
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--target'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --target <value...>
 Short: webpack -t <value...>
 Description: Sets the build target e.g. node.
 Possible values: \\"false\\"
@@ -2065,7 +3716,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help --version" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help --version" option: stdout 1`] = `
-"Usage: webpack --version
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '--version'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --version
 Short: webpack -v
 Description: Output the version number of 'webpack', 'webpack-cli' and 'webpack-dev-server' and commands.
 
@@ -2079,7 +3749,26 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help -v" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help -v" option: stdout 1`] = `
-"Usage: webpack --version
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  '-v'
+]
+commandName build {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false true
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack --version
 Short: webpack -v
 Description: Output the version number of 'webpack', 'webpack-cli' and 'webpack-dev-server' and commands.
 
@@ -2093,7 +3782,27 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help serve --color" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help serve --color" option: stdout 1`] = `
-"Usage: webpack serve --color
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'serve',
+  '--color'
+]
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack serve --color
 Description: Enable colors on console.
 
 To see list of all supported commands and options run 'webpack --help=verbose'.
@@ -2106,7 +3815,27 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help serve --mode" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help serve --mode" option: stdout 1`] = `
-"Usage: webpack serve --mode <value>
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'serve',
+  '--mode'
+]
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack serve --mode <value>
 Description: Defines the mode to pass to webpack.
 Possible values: \\"development | production | none\\"
 
@@ -2120,7 +3849,27 @@ Made with ♥ by the webpack team."
 exports[`help should show help information using the "help serve --no-color" option: stderr 1`] = `""`;
 
 exports[`help should show help information using the "help serve --no-color" option: stdout 1`] = `
-"Usage: webpack serve --no-color
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'help',
+  'serve',
+  '--no-color'
+]
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}
+Usage: webpack serve --no-color
 Description: Disable colors on console.
 
 To see list of all supported commands and options run 'webpack --help=verbose'.
@@ -2133,7 +3882,22 @@ Made with ♥ by the webpack team."
 exports[`help should show help information with options for sub commands: stderr 1`] = `""`;
 
 exports[`help should show help information with options for sub commands: stdout 1`] = `
-"Usage: webpack info|i [options]
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'info',
+  '--help'
+]
+commandName info {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+Usage: webpack info|i [options]
 
 Outputs information about your system.
 
@@ -2157,113 +3921,3 @@ Made with ♥ by the webpack team."
 exports[`help should show the same information using the "--help" option and command syntax: stderr from command syntax 1`] = `""`;
 
 exports[`help should show the same information using the "--help" option and command syntax: stderr from option 1`] = `""`;
-
-exports[`help should show the same information using the "--help" option and command syntax: stdout from command syntax 1`] = `
-"Usage: webpack [entries...] [options]
-Alternative usage to run commands: webpack [command] [options]
-
-The build tool for modern web applications.
-
-Options:
-  -c, --config <value...>                          Provide path to a webpack configuration file e.g. ./webpack.config.js.
-  --config-name <value...>                         Name of the configuration to use.
-  -m, --merge                                      Merge two or more configurations using 'webpack-merge'.
-  --env <value...>                                 Environment passed to the configuration when it is a function.
-  --node-env <value>                               Sets process.env.NODE_ENV to the specified value.
-  --progress [value]                               Print compilation progress during build.
-  -j, --json [value]                               Prints result as JSON or store it in a file.
-  -d, --devtool <value>                            Determine source maps to use.
-  --no-devtool                                     Do not generate source maps.
-  --entry <value...>                               The entry point(s) of your application e.g. ./src/main.js.
-  --mode <value>                                   Defines the mode to pass to webpack.
-  --name <value>                                   Name of the configuration. Used when loading multiple configurations.
-  -o, --output-path <value>                        Output location of the file generated by webpack e.g. ./dist/.
-  --stats [value]                                  It instructs webpack on how to treat the stats e.g. verbose.
-  --no-stats                                       Disable stats output.
-  -t, --target <value...>                          Sets the build target e.g. node.
-  --no-target                                      Negative 'target' option.
-  -w, --watch                                      Watch for files changes.
-  --no-watch                                       Do not watch for file changes.
-  --watch-options-stdin                            Stop watching when stdin stream has ended.
-  --no-watch-options-stdin                         Do not stop watching when stdin stream has ended.
-
-Global options:
-  --color                                          Enable colors on console.
-  --no-color                                       Disable colors on console.
-  -v, --version                                    Output the version number of 'webpack', 'webpack-cli' and 'webpack-dev-server' and commands.
-  -h, --help [verbose]                             Display help for commands and options.
-
-Commands:
-  build|bundle|b [entries...] [options]            Run webpack (default command, can be omitted).
-  configtest|t [config-path]                       Validate a webpack configuration.
-  help|h [command] [option]                        Display help for commands and options.
-  info|i [options]                                 Outputs information about your system.
-  init|create|new|c|n [generation-path] [options]  Initialize a new webpack project.
-  loader|l [output-path] [options]                 Scaffold a loader.
-  migrate|m <config-path> [new-config-path]        Migrate a configuration to a new version.
-  plugin|p [output-path] [options]                 Scaffold a plugin.
-  serve|server|s [entries...] [options]            Run the webpack dev server.
-  version|v [commands...]                          Output the version number of 'webpack', 'webpack-cli' and 'webpack-dev-server' and commands.
-  watch|w [entries...] [options]                   Run webpack and watch for files changes.
-
-To see list of all supported commands and options run 'webpack --help=verbose'.
-
-Webpack documentation: https://webpack.js.org/.
-CLI documentation: https://webpack.js.org/api/cli/.
-Made with ♥ by the webpack team."
-`;
-
-exports[`help should show the same information using the "--help" option and command syntax: stdout from option 1`] = `
-"Usage: webpack [entries...] [options]
-Alternative usage to run commands: webpack [command] [options]
-
-The build tool for modern web applications.
-
-Options:
-  -c, --config <value...>                          Provide path to a webpack configuration file e.g. ./webpack.config.js.
-  --config-name <value...>                         Name of the configuration to use.
-  -m, --merge                                      Merge two or more configurations using 'webpack-merge'.
-  --env <value...>                                 Environment passed to the configuration when it is a function.
-  --node-env <value>                               Sets process.env.NODE_ENV to the specified value.
-  --progress [value]                               Print compilation progress during build.
-  -j, --json [value]                               Prints result as JSON or store it in a file.
-  -d, --devtool <value>                            Determine source maps to use.
-  --no-devtool                                     Do not generate source maps.
-  --entry <value...>                               The entry point(s) of your application e.g. ./src/main.js.
-  --mode <value>                                   Defines the mode to pass to webpack.
-  --name <value>                                   Name of the configuration. Used when loading multiple configurations.
-  -o, --output-path <value>                        Output location of the file generated by webpack e.g. ./dist/.
-  --stats [value]                                  It instructs webpack on how to treat the stats e.g. verbose.
-  --no-stats                                       Disable stats output.
-  -t, --target <value...>                          Sets the build target e.g. node.
-  --no-target                                      Negative 'target' option.
-  -w, --watch                                      Watch for files changes.
-  --no-watch                                       Do not watch for file changes.
-  --watch-options-stdin                            Stop watching when stdin stream has ended.
-  --no-watch-options-stdin                         Do not stop watching when stdin stream has ended.
-
-Global options:
-  --color                                          Enable colors on console.
-  --no-color                                       Disable colors on console.
-  -v, --version                                    Output the version number of 'webpack', 'webpack-cli' and 'webpack-dev-server' and commands.
-  -h, --help [verbose]                             Display help for commands and options.
-
-Commands:
-  build|bundle|b [entries...] [options]            Run webpack (default command, can be omitted).
-  configtest|t [config-path]                       Validate a webpack configuration.
-  help|h [command] [option]                        Display help for commands and options.
-  info|i [options]                                 Outputs information about your system.
-  init|create|new|c|n [generation-path] [options]  Initialize a new webpack project.
-  loader|l [output-path] [options]                 Scaffold a loader.
-  migrate|m <config-path> [new-config-path]        Migrate a configuration to a new version.
-  plugin|p [output-path] [options]                 Scaffold a plugin.
-  serve|server|s [entries...] [options]            Run the webpack dev server.
-  version|v [commands...]                          Output the version number of 'webpack', 'webpack-cli' and 'webpack-dev-server' and commands.
-  watch|w [entries...] [options]                   Run webpack and watch for files changes.
-
-To see list of all supported commands and options run 'webpack --help=verbose'.
-
-Webpack documentation: https://webpack.js.org/.
-CLI documentation: https://webpack.js.org/api/cli/.
-Made with ♥ by the webpack team."
-`;

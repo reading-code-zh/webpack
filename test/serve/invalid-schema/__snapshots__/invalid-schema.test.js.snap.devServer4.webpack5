@@ -7,14 +7,56 @@ exports[`invalid schema should log webpack error and exit process on invalid con
    -> Enable production optimizations or development hints."
 `;
 
-exports[`invalid schema should log webpack error and exit process on invalid config: stdout 1`] = `""`;
+exports[`invalid schema should log webpack error and exit process on invalid config: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'serve',
+  '--config',
+  './webpack.config.mock.js'
+]
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
 
 exports[`invalid schema should log webpack error and exit process on invalid flag: stderr 1`] = `
 "[webpack-cli] Invalid value 'Yukihira' for the '--mode' option
 [webpack-cli] Expected: 'development | production | none'"
 `;
 
-exports[`invalid schema should log webpack error and exit process on invalid flag: stdout 1`] = `""`;
+exports[`invalid schema should log webpack error and exit process on invalid flag: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'serve',
+  '--mode',
+  'Yukihira'
+]
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
 
 exports[`invalid schema should log webpack-dev-server error and exit process on invalid config: stderr 1`] = `
 "[webpack-cli] Invalid options object. Dev Server has been initialized using an options object that does not match the API schema.
@@ -27,4 +69,25 @@ exports[`invalid schema should log webpack-dev-server error and exit process on 
       -> Read more at https://github.com/watson/bonjour#initializing"
 `;
 
-exports[`invalid schema should log webpack-dev-server error and exit process on invalid config: stdout 1`] = `""`;
+exports[`invalid schema should log webpack-dev-server error and exit process on invalid config: stdout 1`] = `
+"webpack-cli is local <cwd>/packages/webpack-cli/bin/cli.js
+args---- [
+  '/Users/lei/.nvm/versions/node/vx.x.x/bin/node',
+  '<cwd>/packages/webpack-cli/bin/cli.js',
+  'serve',
+  '--config',
+  './webpack-dev-server.config.mock.js'
+]
+commandName serve {
+  name: 'build [entries...]',
+  alias: [ 'bundle', 'b' ],
+  description: 'Run webpack (default command, can be omitted).',
+  usage: '[entries...] [options]',
+  dependencies: [ 'webpack' ]
+}
+isWatchCommandUsed false false
+this.webpack.cli {
+  getArguments: [Function: getArguments],
+  processArguments: [Function: processArguments]
+}"
+`;
