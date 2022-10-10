@@ -2,7 +2,7 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-module.exports = function(cssCode) {
+module.exports = function (cssCode) {
 	var styleElement = document.createElement("style");
 	styleElement.type = "text/css";
 	if (styleElement.styleSheet) {
@@ -12,7 +12,7 @@ module.exports = function(cssCode) {
 	}
 	var head = document.getElementsByTagName("head")[0];
 	head.appendChild(styleElement);
-	return function() {
+	return function () {
 		head.removeChild(styleElement);
 	};
-}
+};

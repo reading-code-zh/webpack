@@ -1,4 +1,4 @@
-var main = function() {
+var main = function () {
 	console.log("Main class");
 	require.ensure([], () => {
 		const page = require("./pageA");

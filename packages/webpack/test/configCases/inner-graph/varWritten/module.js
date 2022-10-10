@@ -1,6 +1,6 @@
 import { im1, im2, im3 } from "any";
 
-var exp1 = function() {
+var exp1 = function () {
 	console.log(im1);
 };
 
@@ -9,7 +9,7 @@ var exp2 = () => {
 	exp1 = 3;
 };
 
-var exp3 = function() {
+var exp3 = function () {
 	console.log(im3);
 };
 

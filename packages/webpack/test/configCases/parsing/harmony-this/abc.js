@@ -41,7 +41,7 @@ export const E = {
 };
 
 // See https://github.com/webpack/webpack/issues/6967
-export const F = function() {
+export const F = function () {
 	return this;
 }.call("ok");
 
@@ -49,7 +49,7 @@ export function f1(x = this.x) {
 	return x;
 }
 
-export const f2 = function(x = this.x) {
+export const f2 = function (x = this.x) {
 	return x;
 };
 

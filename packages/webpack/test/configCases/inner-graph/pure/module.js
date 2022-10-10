@@ -31,7 +31,7 @@ import reduce from "./reduce";
  *      isQueenOfSpades({rank: 'Q', suit: '♠︎'}); //=> true
  */
 var allPass = /*#__PURE__*/ _curry1(function allPass(preds) {
-	return curryN(reduce(max, 0, pluck("length", preds)), function() {
+	return curryN(reduce(max, 0, pluck("length", preds)), function () {
 		var idx = 0;
 		var len = preds.length;
 		while (idx < len) {

@@ -1,4 +1,4 @@
-it("should detect query strings in dynamic import as a static value 1 ", function() {
+it("should detect query strings in dynamic import as a static value 1 ", function () {
 	return Promise.all([
 		import("./a").then(({ default: a }) => {
 			expect(a()).toBe("a");
@@ -11,11 +11,11 @@ it("should detect query strings in dynamic import as a static value 1 ", functio
 		}),
 		import("./abc?query?String").then(({ default: a }) => {
 			expect(a()).toBe("abc?query?String");
-		}),
+		})
 	]);
 });
 
-it("should detect query strings in dynamic import as a static value 2", function() {
+it("should detect query strings in dynamic import as a static value 2", function () {
 	var testFileName = "a";
 
 	return Promise.all([
@@ -34,7 +34,7 @@ it("should detect query strings in dynamic import as a static value 2", function
 	]);
 });
 
-it("should detect query strings in dynamic import as a static value 3", function() {
+it("should detect query strings in dynamic import as a static value 3", function () {
 	var testFileName = "a";
 
 	return Promise.all([

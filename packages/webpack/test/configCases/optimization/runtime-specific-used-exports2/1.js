@@ -1,17 +1,6 @@
-import {
-	e,
-	_1
-} from "./path1";
-import {
-	aUsed,
-	bUsed,
-	cUsed
-} from "root1";
-import {
-	dUsed,
-	eUsed,
-	fUsed
-} from "root2";
+import { e, _1 } from "./path1";
+import { aUsed, bUsed, cUsed } from "root1";
+import { dUsed, eUsed, fUsed } from "root2";
 
 it("should use only current entrypoint exports", () => {
 	expect(e).toBe("e");

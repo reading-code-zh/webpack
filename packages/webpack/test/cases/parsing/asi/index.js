@@ -1,4 +1,4 @@
-import {a as b, callme, getCount} from "./a";
+import { a as b, callme, getCount } from "./a";
 import * as c from "./b";
 
 function donotcallme() {
@@ -6,43 +6,47 @@ function donotcallme() {
 }
 
 it("should respect asi flag", () => {
-	(donotcallme)
+	donotcallme;
 	import.meta;
-	(donotcallme)
+	donotcallme;
 	b();
-	(donotcallme)
+	donotcallme;
 	c;
 
-	var i = 0
-	for (;i < 10;i++) callme()
-	var i = 0
-	for (;i < 10;(function() {
-		i++
-	})()) callme()
-	var i = 0
-	for (;i < 2;i++) {
-		(donotcallme)
+	var i = 0;
+	for (; i < 10; i++) callme();
+	var i = 0;
+	for (
+		;
+		i < 10;
+		(function () {
+			i++;
+		})()
+	)
+		callme();
+	var i = 0;
+	for (; i < 2; i++) {
+		donotcallme;
 		b();
 	}
-	var i = 0
-	if (i++) callme()
-	var i = 1
-	if (i)
-		(donotcallme)
-	else
-		callme()
-	var i = 0
-	while (i++ < 4) callme()
-	do (donotcallme)
-	while (i++ < 4) callme()
-	var i = 0
-	while (i++ < 4) (function () {
-		var i = 4
-		return callme()
-	})()
+	var i = 0;
+	if (i++) callme();
+	var i = 1;
+	if (i) donotcallme;
+	else callme();
+	var i = 0;
+	while (i++ < 4) callme();
+	do donotcallme;
+	while (i++ < 4);
+	callme();
+	var i = 0;
+	while (i++ < 4)
+		(function () {
+			var i = 4;
+			return callme();
+		})();
+	donotcallme;
+	require("./b.json").prop;
 
-	;(donotcallme)
-	require("./b.json").prop
-
-	expect(getCount()).toBe(29)
+	expect(getCount()).toBe(29);
 });

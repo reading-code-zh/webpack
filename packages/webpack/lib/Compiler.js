@@ -1157,11 +1157,13 @@ ${other}`);
 	 * @returns {void}
 	 */
 	compile(callback) {
-		 //初始化构建需要的模块插件
+		//初始化构建需要的模块插件
 		const params = this.newCompilationParams();
+
 		this.hooks.beforeCompile.callAsync(params, err => {
 			if (err) return callback(err);
 
+			// TODO:
 			this.hooks.compile.call(params);
 
 			//创建构建实例，构建过程的内容都会保存在compilation中
@@ -1171,7 +1173,7 @@ ${other}`);
 
 			logger.time("make hook");
 
-			//开始构建模块
+			// 读取入口文件，分析和收集依赖
 			this.hooks.make.callAsync(compilation, err => {
 				logger.timeEnd("make hook");
 				if (err) return callback(err);

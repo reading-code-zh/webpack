@@ -3,7 +3,8 @@ async function dynamic_import(dir, name) {
 		return import(
 			/* webpackChunkName: "a" */
 			/* webpackMode: "lazy-once" */
-			`./dynamic_a/${name}.js`);
+			`./dynamic_a/${name}.js`
+		);
 	}
 	throw new Error();
 }

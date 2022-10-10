@@ -1,6 +1,6 @@
 var getData = require("library");
 
-it("should be able get items from library (" + NAME + ")", function() {
+it("should be able get items from library (" + NAME + ")", function () {
 	const d = getData();
 	expect(d).toHaveProperty("x");
 	expect(d.x).toHaveProperty("y");

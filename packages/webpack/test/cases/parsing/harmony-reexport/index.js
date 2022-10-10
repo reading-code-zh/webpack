@@ -1,4 +1,13 @@
-import { a, aUsed, aCanBeMangled, aProvided, aToStringProvided, obj, objUsed, objAProvided } from "./reexport";
+import {
+	a,
+	aUsed,
+	aCanBeMangled,
+	aProvided,
+	aToStringProvided,
+	obj,
+	objUsed,
+	objAProvided
+} from "./reexport";
 
 if (a()) console.log("a", obj);
 

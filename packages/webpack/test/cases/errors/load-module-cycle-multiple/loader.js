@@ -12,19 +12,19 @@ exports.default = function (source) {
 		// Modules are loaded sequentially as the false-positive circular reference
 		// bug from https://github.com/webpack/webpack/issues/14379 doesn't occur if
 		// they are loaded in parallel.
-		const loadedRefs = []
-		for(const ref of refs) {
+		const loadedRefs = [];
+		for (const ref of refs) {
 			try {
 				const source = await loadModulePromise("../loader!" + ref);
 				loadedRefs.push([ref, JSON.parse(source)]);
-			} catch(err) {
+			} catch (err) {
 				loadedRefs.push([ref, `err: ${err && err.message}`]);
 			}
 		}
 		return loadedRefs;
 	}
 
-	loadReferencedModules().then((loadResults) => {
+	loadReferencedModules().then(loadResults => {
 		callback(null, JSON.stringify(loadResults));
 	});
 };

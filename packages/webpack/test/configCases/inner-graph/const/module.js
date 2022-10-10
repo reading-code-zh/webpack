@@ -1,6 +1,6 @@
 import { im1, im2 } from "any";
 
-const exp1 = function() {
+const exp1 = function () {
 	console.log(im1);
 };
 

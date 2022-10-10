@@ -31,15 +31,15 @@ owner:
 
 ```json5
 {
-  // comment
-  title: "JSON5 Example",
-  owner: {
-    name: "Tom Preston-Werner",
-    organization: "GitHub",
-    bio: "GitHub Cofounder & CEO\n\
+	// comment
+	title: "JSON5 Example",
+	owner: {
+		name: "Tom Preston-Werner",
+		organization: "GitHub",
+		bio: "GitHub Cofounder & CEO\n\
 Likes tater tots and beer.",
-    dob: "1979-05-27T07:32:00.000Z"
-  }
+		dob: "1979-05-27T07:32:00.000Z"
+	}
 }
 ```
 
@@ -50,13 +50,17 @@ import toml from "./data.toml";
 import yaml from "./data.yaml";
 import json from "./data.json5";
 
-document.querySelector('#app').innerHTML = [toml, yaml, json].map(data => `
+document.querySelector("#app").innerHTML = [toml, yaml, json]
+	.map(
+		data => `
   <h1>${data.title}</h1>
   <div>${data.owner.name}</div>
   <div>${data.owner.organization}</div>
   <div>${data.owner.bio}</div>
   <div>${data.owner.dob}</div>
-`).join('<br><br>');
+`
+	)
+	.join("<br><br>");
 ```
 
 # webpack.config.js
@@ -166,50 +170,62 @@ module.exports = JSON.parse('{"title":"JSON5 Example","owner":{"name":"Tom Prest
 
 <details><summary><code>/* webpack runtime code */</code></summary>
 
-``` js
+```js
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/
+/******/ // The require function
+/******/ function __webpack_require__(moduleId) {
+	/******/ // Check if module is in cache
+	/******/ var cachedModule = __webpack_module_cache__[moduleId];
+	/******/ if (cachedModule !== undefined) {
+		/******/ return cachedModule.exports;
+		/******/
+	}
+	/******/ // Create a new module (and put it into the cache)
+	/******/ var module = (__webpack_module_cache__[moduleId] = {
+		/******/ // no module.id needed
+		/******/ // no module.loaded needed
+		/******/ exports: {}
+		/******/
+	});
+	/******/
+	/******/ // Execute the module function
+	/******/ __webpack_modules__[moduleId](
+		module,
+		module.exports,
+		__webpack_require__
+	);
+	/******/
+	/******/ // Return the exports of the module
+	/******/ return module.exports;
+	/******/
+}
+/******/
 /************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
+/******/ /* webpack/runtime/make namespace object */
+/******/ (() => {
+	/******/ // define __esModule on exports
+	/******/ __webpack_require__.r = exports => {
+		/******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+			/******/ Object.defineProperty(exports, Symbol.toStringTag, {
+				value: "Module"
+			});
+			/******/
+		}
+		/******/ Object.defineProperty(exports, "__esModule", { value: true });
+		/******/
+	};
+	/******/
+})();
+/******/
 /************************************************************************/
 ```
 
 </details>
 
-``` js
+```js
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {

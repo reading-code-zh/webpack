@@ -1,3 +1,3 @@
-define(function() {
-	throw new Error('message');
+define(function () {
+	throw new Error("message");
 });

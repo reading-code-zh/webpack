@@ -1,4 +1,4 @@
-import "./no-warn"
+import "./no-warn";
 
 it("global", () => {
 	expect(typeof global).toBe("object");

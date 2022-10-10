@@ -1,5 +1,5 @@
 Object.defineProperty(module, "exports", {
-	get: function() {
+	get: function () {
 		return "ok";
 	}
 });

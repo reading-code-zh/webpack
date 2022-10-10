@@ -7,7 +7,7 @@ it("should run", () => {
 	require("./loader-pre-relative!");
 });
 
-it("should generate the correct SourceMap", function() {
+it("should generate the correct SourceMap", function () {
 	var fs = require("fs");
 	var source = JSON.parse(fs.readFileSync(__filename + ".map", "utf-8"));
 	expect(source.sources).toContain("webpack:///./folder/test1.txt");

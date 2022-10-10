@@ -1,3 +1,3 @@
-it("should not be moved", function() {
+it("should not be moved", function () {
 	expect(new Error().stack).not.toMatch(/webpackBootstrap/);
 });

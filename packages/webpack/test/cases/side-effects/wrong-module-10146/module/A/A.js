@@ -1,3 +1,3 @@
 export default function hello() {
-  return 'A/A.js'
+	return "A/A.js";
 }

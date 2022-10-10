@@ -1,2 +1,2 @@
 import cts from "./cts";
-export default cts.connectData(function() {});
+export default cts.connectData(function () {});

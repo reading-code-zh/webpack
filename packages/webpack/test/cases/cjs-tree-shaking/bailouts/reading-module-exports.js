@@ -1,5 +1,5 @@
 exports.abc = "abc";
 
-exports.test = function() {
+exports.test = function () {
 	return module.exports;
 };

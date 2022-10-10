@@ -1,1 +1,1 @@
-export { f } from 'base';
+export { f } from "base";

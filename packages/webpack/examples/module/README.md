@@ -42,36 +42,48 @@ export function reset() {
 ```javascript
 /******/ // The require scope
 /******/ var __webpack_require__ = {};
-/******/ 
+/******/
 ```
 
 <details><summary><code>/* webpack runtime code */</code></summary>
 
-``` js
+```js
 /************************************************************************/
 /******/ /* webpack/runtime/define property getters */
 /******/ (() => {
-/******/ 	// define getter functions for harmony exports
-/******/ 	__webpack_require__.d = (exports, definition) => {
-/******/ 		for(var key in definition) {
-/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 			}
-/******/ 		}
-/******/ 	};
-/******/ })();
-/******/ 
+	/******/ // define getter functions for harmony exports
+	/******/ __webpack_require__.d = (exports, definition) => {
+		/******/ for (var key in definition) {
+			/******/ if (
+				__webpack_require__.o(definition, key) &&
+				!__webpack_require__.o(exports, key)
+			) {
+				/******/ Object.defineProperty(exports, key, {
+					enumerable: true,
+					get: definition[key]
+				});
+				/******/
+			}
+			/******/
+		}
+		/******/
+	};
+	/******/
+})();
+/******/
 /******/ /* webpack/runtime/hasOwnProperty shorthand */
 /******/ (() => {
-/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ })();
-/******/ 
+	/******/ __webpack_require__.o = (obj, prop) =>
+		Object.prototype.hasOwnProperty.call(obj, prop);
+	/******/
+})();
+/******/
 /************************************************************************/
 ```
 
 </details>
 
-``` js
+```js
 var __webpack_exports__ = {};
 /*!********************************!*\
   !*** ./example.js + 2 modules ***!
@@ -83,11 +95,10 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "inc": () => (/* reexport */ increment),
-  "print": () => (/* reexport */ print)
-});
+	inc: () => /* reexport */ increment,
+	print: () => /* reexport */ print
+}); // CONCATENATED MODULE: ./counter.js
 
-;// CONCATENATED MODULE: ./counter.js
 let value = 0;
 function increment() {
 	value++;
@@ -97,15 +108,9 @@ function decrement() {
 }
 function counter_reset() {
 	value = 0;
-}
+} // CONCATENATED MODULE: ./methods.js
 
-;// CONCATENATED MODULE: ./methods.js
-
-
-const print = value => console.log(value);
-
-;// CONCATENATED MODULE: ./example.js
-
+const print = value => console.log(value); // CONCATENATED MODULE: ./example.js
 
 print(value);
 increment();
@@ -115,8 +120,6 @@ print(value);
 counter_reset();
 print(value);
 
-
-
 var __webpack_exports__inc = __webpack_exports__.inc;
 var __webpack_exports__print = __webpack_exports__.print;
 export { __webpack_exports__inc as inc, __webpack_exports__print as print };
@@ -125,7 +128,26 @@ export { __webpack_exports__inc as inc, __webpack_exports__print as print };
 # dist/output.js (production)
 
 ```javascript
-var e={d:(o,r)=>{for(var t in r)e.o(r,t)&&!e.o(o,t)&&Object.defineProperty(o,t,{enumerable:!0,get:r[t]})},o:(e,o)=>Object.prototype.hasOwnProperty.call(e,o)},o={};e.d(o,{a:()=>t,S:()=>a});let r=0;function t(){r++}const a=e=>console.log(e);a(r),t(),t(),t(),a(r),r=0,a(r);var n=o.a,c=o.S;export{n as inc,c as print};
+var e = {
+		d: (o, r) => {
+			for (var t in r)
+				e.o(r, t) &&
+					!e.o(o, t) &&
+					Object.defineProperty(o, t, { enumerable: !0, get: r[t] });
+		},
+		o: (e, o) => Object.prototype.hasOwnProperty.call(e, o)
+	},
+	o = {};
+e.d(o, { a: () => t, S: () => a });
+let r = 0;
+function t() {
+	r++;
+}
+const a = e => console.log(e);
+a(r), t(), t(), t(), a(r), (r = 0), a(r);
+var n = o.a,
+	c = o.S;
+export { n as inc, c as print };
 ```
 
 # Info

@@ -1,1 +1,1 @@
-require.extensions[".js"] = function() {};
+require.extensions[".js"] = function () {};

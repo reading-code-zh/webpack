@@ -1,4 +1,4 @@
-it("should make different modules for query", function() {
+it("should make different modules for query", function () {
 	var a = require("./empty");
 	var b = require("./empty?1");
 	var c = require("./empty?2");
@@ -9,4 +9,3 @@ it("should make different modules for query", function() {
 	expect(a).not.toBe(c);
 	expect(b).not.toBe(c);
 });
-

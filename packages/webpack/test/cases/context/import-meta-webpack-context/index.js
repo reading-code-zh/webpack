@@ -1,4 +1,4 @@
-it("should allow prefetch/preload", function() {
+it("should allow prefetch/preload", function () {
 	const contextRequire = import.meta.webpackContext("./dir", {
 		prefetch: true,
 		preload: 1
@@ -6,19 +6,19 @@ it("should allow prefetch/preload", function() {
 	expect(contextRequire("./four")).toBe(4);
 });
 
-it("should allow include/exclude", function() {
+it("should allow include/exclude", function () {
 	const contextRequire = import.meta.webpackContext(".", {
 		recursive: false,
 		regExp: /two/,
 		mode: "weak",
 		exclude: /three/
 	});
-	expect(function() {
-		contextRequire("./two-three")
+	expect(function () {
+		contextRequire("./two-three");
 	}).toThrowError(/Cannot find module/);
 });
 
-it("should allow chunkName", function() {
+it("should allow chunkName", function () {
 	const contextRequire = import.meta.webpackContext(".", {
 		regExp: /two-three/,
 		chunkName: "chunk012"

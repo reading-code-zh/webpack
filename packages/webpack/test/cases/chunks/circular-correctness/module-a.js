@@ -1,3 +1,3 @@
-export default function() {
-	return import(/* webpackChunkName: "c" */"./module-c");
-};
+export default function () {
+	return import(/* webpackChunkName: "c" */ "./module-c");
+}

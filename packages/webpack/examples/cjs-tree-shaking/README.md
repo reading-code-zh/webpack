@@ -118,38 +118,45 @@ __webpack_unused_export__ = function multiply() {
 
 <details><summary><code>/* webpack runtime code */</code></summary>
 
-``` js
+```js
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/
+/******/ // The require function
+/******/ function __webpack_require__(moduleId) {
+	/******/ // Check if module is in cache
+	/******/ var cachedModule = __webpack_module_cache__[moduleId];
+	/******/ if (cachedModule !== undefined) {
+		/******/ return cachedModule.exports;
+		/******/
+	}
+	/******/ // Create a new module (and put it into the cache)
+	/******/ var module = (__webpack_module_cache__[moduleId] = {
+		/******/ // no module.id needed
+		/******/ // no module.loaded needed
+		/******/ exports: {}
+		/******/
+	});
+	/******/
+	/******/ // Execute the module function
+	/******/ __webpack_modules__[moduleId](
+		module,
+		module.exports,
+		__webpack_require__
+	);
+	/******/
+	/******/ // Return the exports of the module
+	/******/ return module.exports;
+	/******/
+}
+/******/
 /************************************************************************/
 ```
 
 </details>
 
-``` js
+```js
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
@@ -172,14 +179,74 @@ inc(a); // 2
 
 ```javascript
 /*! For license information please see output.js.LICENSE.txt */
-(()=>{var r=[,(r,n,t)=>{const o=t(2).I;n.nP=function(r){return o(r,1)}},(r,n)=>{n.I=function(){for(var r=0,n=0,t=arguments,o=t.length;n<o;)r+=t[n++];return r}}],n={};(0,function t(o){var e=n[o];if(void 0!==e)return e.exports;var u=n[o]={exports:{}};return r[o](u,u.exports,t),u.exports}(1).nP)(1)})();
+(() => {
+	var r = [
+			,
+			(r, n, t) => {
+				const o = t(2).I;
+				n.nP = function (r) {
+					return o(r, 1);
+				};
+			},
+			(r, n) => {
+				n.I = function () {
+					for (var r = 0, n = 0, t = arguments, o = t.length; n < o; )
+						r += t[n++];
+					return r;
+				};
+			}
+		],
+		n = {};
+	(0,
+	(function t(o) {
+		var e = n[o];
+		if (void 0 !== e) return e.exports;
+		var u = (n[o] = { exports: {} });
+		return r[o](u, u.exports, t), u.exports;
+	})(1).nP)(1);
+})();
 ```
 
 # dist/without.js (same without tree shaking)
 
 ```javascript
 /*! For license information please see without.js.LICENSE.txt */
-(()=>{var n=[,(n,r,t)=>{const e=t(2).add;r.increment=function(n){return e(n,1)},r.incrementBy2=function(n){return e(n,2)},r.decrement=function(n){return e(n,1)}},(n,r)=>{r.add=function(){for(var n=0,r=0,t=arguments,e=t.length;r<e;)n+=t[r++];return n},r.multiply=function(){for(var n=0,r=arguments,t=r.length;n<t;)sum*=r[n++];return sum}}],r={};(0,function t(e){var u=r[e];if(void 0!==u)return u.exports;var o=r[e]={exports:{}};return n[e](o,o.exports,t),o.exports}(1).increment)(1)})();
+(() => {
+	var n = [
+			,
+			(n, r, t) => {
+				const e = t(2).add;
+				(r.increment = function (n) {
+					return e(n, 1);
+				}),
+					(r.incrementBy2 = function (n) {
+						return e(n, 2);
+					}),
+					(r.decrement = function (n) {
+						return e(n, 1);
+					});
+			},
+			(n, r) => {
+				(r.add = function () {
+					for (var n = 0, r = 0, t = arguments, e = t.length; r < e; )
+						n += t[r++];
+					return n;
+				}),
+					(r.multiply = function () {
+						for (var n = 0, r = arguments, t = r.length; n < t; ) sum *= r[n++];
+						return sum;
+					});
+			}
+		],
+		r = {};
+	(0,
+	(function t(e) {
+		var u = r[e];
+		if (void 0 !== u) return u.exports;
+		var o = (r[e] = { exports: {} });
+		return n[e](o, o.exports, t), o.exports;
+	})(1).increment)(1);
+})();
 ```
 
 # Info

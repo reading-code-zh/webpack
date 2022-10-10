@@ -1,4 +1,4 @@
-it("should return different modules with different casing", function() {
+it("should return different modules with different casing", function () {
 	var a = require("./a");
 	var A = require("./A");
 	var b = require("./b/file.js");

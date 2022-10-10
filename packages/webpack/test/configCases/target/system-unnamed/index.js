@@ -2,4 +2,4 @@
  * System.register does not include a name argument.
  */
 
-it("should call System.register without a name", function() {});
+it("should call System.register without a name", function () {});

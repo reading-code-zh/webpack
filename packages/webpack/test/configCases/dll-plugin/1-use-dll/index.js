@@ -3,39 +3,39 @@ import { x1, y2 } from "./e";
 import { x2, y1 } from "dll/e";
 import { B } from "dll/h";
 
-it("should load a module from dll", function() {
+it("should load a module from dll", function () {
 	expect(require("dll/a")).toBe("a");
 });
 
-it("should load a module of non-default type without extension from dll", function() {
+it("should load a module of non-default type without extension from dll", function () {
 	expect(require("dll/f")).toBe("f");
 });
 
-it("should load an async module from dll", function(done) {
+it("should load an async module from dll", function (done) {
 	require("dll/b")()
-		.then(function(c) {
+		.then(function (c) {
 			expect(c).toEqual(nsObj({ default: "c" }));
 			done();
 		})
 		.catch(done);
 });
 
-it("should load an harmony module from dll (default export)", function() {
+it("should load an harmony module from dll (default export)", function () {
 	expect(d).toBe("d");
 });
 
-it("should load an harmony module from dll (star export)", function() {
+it("should load an harmony module from dll (star export)", function () {
 	expect(x1).toBe(123);
 	expect(x2).toBe(123);
 	expect(y1).toBe(456);
 	expect(y2).toBe(456);
 });
 
-it("should load a module with loader applied", function() {
+it("should load a module with loader applied", function () {
 	expect(require("dll/g.abc.js")).toBe("number");
 });
 
-it("should give modules the correct ids", function() {
+it("should give modules the correct ids", function () {
 	expect(
 		Object.keys(__webpack_modules__)
 			.filter(m => !m.startsWith("../.."))
@@ -55,6 +55,6 @@ it("should give modules the correct ids", function() {
 	]);
 });
 
-it("should not crash on side-effect-free modules", function() {
+it("should not crash on side-effect-free modules", function () {
 	expect(B).toBe("B");
 });

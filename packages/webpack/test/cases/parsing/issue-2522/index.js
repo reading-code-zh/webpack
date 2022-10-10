@@ -2,7 +2,7 @@ import { a, a as aa } from "./module";
 import b from "./module";
 import * as c from "./module";
 
-it("should import into object shorthand", function() {
+it("should import into object shorthand", function () {
 	var o = {
 		a,
 		aa,
@@ -18,4 +18,4 @@ it("should import into object shorthand", function() {
 			default: 456
 		})
 	});
-})
+});

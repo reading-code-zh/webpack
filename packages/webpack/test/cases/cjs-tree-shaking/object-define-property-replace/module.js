@@ -1,1 +1,1 @@
-Object.defineProperty(((this)), "test", (((0, { value : true}))));
+Object.defineProperty(this, "test", (0, { value: true }));

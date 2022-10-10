@@ -1,5 +1,6 @@
 // the message is inconsistency between some nodejs versions
-const UNKNOWN_FUNCTION_TABLE = /table index is out of bounds|invalid index into function table|invalid function/;
+const UNKNOWN_FUNCTION_TABLE =
+	/table index is out of bounds|invalid index into function table|invalid function/;
 
 it("should support tables", function () {
 	return import("./wasm-table.wat").then(function (wasm) {

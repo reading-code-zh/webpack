@@ -9,7 +9,7 @@ You can also see the info messages that webpack prints to console (for both norm
 # example.js
 
 ```javascript
-const inc = require('./increment').increment;
+const inc = require("./increment").increment;
 const a = 1;
 inc(a); // 2
 ```
@@ -17,21 +17,24 @@ inc(a); // 2
 # increment.js
 
 ```javascript
-const add = require('./math').add;
-exports.increment = function(val) {
-    return add(val, 1);
+const add = require("./math").add;
+exports.increment = function (val) {
+	return add(val, 1);
 };
 ```
 
 # math.js
 
 ```javascript
-exports.add = function() {
-    var sum = 0, i = 0, args = arguments, l = args.length;
-    while (i < l) {
-        sum += args[i++];
-    }
-    return sum;
+exports.add = function () {
+	var sum = 0,
+		i = 0,
+		args = arguments,
+		l = args.length;
+	while (i < l) {
+		sum += args[i++];
+	}
+	return sum;
 };
 ```
 
@@ -82,38 +85,45 @@ exports.add = function() {
 
 <details><summary><code>/* webpack runtime code */</code></summary>
 
-``` js
+```js
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/
+/******/ // The require function
+/******/ function __webpack_require__(moduleId) {
+	/******/ // Check if module is in cache
+	/******/ var cachedModule = __webpack_module_cache__[moduleId];
+	/******/ if (cachedModule !== undefined) {
+		/******/ return cachedModule.exports;
+		/******/
+	}
+	/******/ // Create a new module (and put it into the cache)
+	/******/ var module = (__webpack_module_cache__[moduleId] = {
+		/******/ // no module.id needed
+		/******/ // no module.loaded needed
+		/******/ exports: {}
+		/******/
+	});
+	/******/
+	/******/ // Execute the module function
+	/******/ __webpack_modules__[moduleId](
+		module,
+		module.exports,
+		__webpack_require__
+	);
+	/******/
+	/******/ // Return the exports of the module
+	/******/ return module.exports;
+	/******/
+}
+/******/
 /************************************************************************/
 ```
 
 </details>
 
-``` js
+```js
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {

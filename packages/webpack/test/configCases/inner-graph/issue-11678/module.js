@@ -115,9 +115,7 @@ const resizeObserverInstance = new RO(entries => {
 	});
 });
 let _options;
-let _parentModuleSettings,
-	_parentTableSelection,
-	_parentTableDataId;
+let _parentModuleSettings, _parentTableSelection, _parentTableDataId;
 let _isFormInDialog = false,
 	_isFormInDialogSelector = null,
 	_isFormInDialogJobPK = null;
@@ -438,7 +436,6 @@ async function _createToolbarTable(setEvent) {
 	const toolbar = new SplitViewMenu.Toolbar("table");
 	console.log("_createToolbarTable(", setEvent, ")");
 	switch (setEvent) {
-
 		case buttons.STATE.initialize:
 			switch (_getModuleName()) {
 				case ModuleNameEnum.JOB:
@@ -460,7 +457,6 @@ async function _createToolbarTable(setEvent) {
 					toolbar.add(_buttonSortManual(onSortManual), "right");
 					break;
 				case ModuleNameEnum.SIHEADER:
-
 					if (
 						privileges.getPrivilege(
 							_staticData,
@@ -608,7 +604,6 @@ async function _createToolbarTable(setEvent) {
 			}
 
 			if (privileges.getPrivilege(_staticData, privileges.PRIVILEGE.SIMODULE)) {
-
 				if (_tableObject.getOptions().multipleSelection) {
 					const selectedIds = _.map(
 						_tableObject.getSelection(),
@@ -712,7 +707,6 @@ async function _createToolbarTable(setEvent) {
 				toolbar.add(buttonInsertFromTemplate(onInsertFromTemplateDialog));
 			}
 			if (privileges.getPrivilege(_staticData, privileges.PRIVILEGE.COPYPOS)) {
-
 				toolbar.add(buttonCopySelect(onCopyList()));
 			}
 			if (
@@ -769,10 +763,6 @@ async function _createToolbarTable(setEvent) {
 			) {
 				toolbar.add(buttonCopyJobToOrderPos(onJobToOrderPos.bind(this, true)));
 			}
-
-
-
-
 
 			toolbar.addSpacer();
 			toolbar.add(
@@ -1045,7 +1035,6 @@ export async function getDataAndShowTable(
 		$(".menutableindetails").hide();
 	}
 	if (name === ModuleNameEnum.JOB) {
-
 		const hPk = getPKfromModule();
 		const serviceIDForLink = serviceID ? String(serviceID) : "";
 		addedBreadcrumbId = await Breadcrumb.add(
@@ -1053,7 +1042,6 @@ export async function getDataAndShowTable(
 			`LAS_MOD_JOB_DLG.page?jobID=${hPk.jobid}&serviceID=${serviceIDForLink}`
 		);
 		if (serviceID) {
-
 			_tableObject.setCurrentRow({
 				jpos_posno: serviceID,
 				jpos_jobid: hPk.jobid
@@ -1215,7 +1203,6 @@ async function onClickTable(selection, formState) {
 	if (selectionLength === 0) {
 		await _removeDetails();
 	} else if (selectionLength === 1) {
-
 		switch (_getModuleName()) {
 			case ModuleNameEnum.SIHEADER:
 				await _createToolbarTable(buttons.STATE.siPositionTableMenu);
@@ -1295,7 +1282,6 @@ async function _showTableInTable() {
 	await _createToolbarTable(buttons.STATE.initialize);
 	_rerenderTable();
 	_tableObject.on(CALLBACK_EVENTS.SELECTIONCHANGED, async currentRows => {
-
 		console.log("currentRows", currentRows);
 
 		const btnCancel = buttonClasses.cancel;
@@ -1322,7 +1308,6 @@ async function _showTableInTable() {
 		moveTableRow(sourceRows, targetRows)
 	);
 	_tableObject.on(CALLBACK_EVENTS.FILTERCHANGED, async tableConfig => {
-
 		console.log("FILTERCHANGED", tableConfig, _tableObject.getFilter());
 
 		await onReloadTable();
@@ -1392,7 +1377,6 @@ async function _updateTableContent() {
 	para.theType = _getModuleType();
 	const data = await servicesData.getListOfPos(para, _getModuleType(), 1, 1);
 	if (data !== null) {
-
 		_tableObject.setConfiguration({
 			..._tableObject.getConfiguration(),
 			columns: data.head.columns
@@ -1507,16 +1491,11 @@ function _bindUiListPickerEmployees(
 		return;
 	}
 	if (!setAsNoTask) {
-
 		if (_formEvent === buttons.STATE.edit || _formEvent === buttons.STATE.new) {
-
 			$selector.find("ul").sortable("enable");
 		} else {
-
 			$selector.find("ul").sortable("disable");
 		}
-
-
 
 		if (elementName === BEC.LISTEMPLS && _formEvent === buttons.STATE.edit) {
 			_showEmployeesDialogButton(configuration.Id);
@@ -1561,10 +1540,8 @@ function _bindUiListPickerPositions(
 		throw new Error("function _bindUiListPickerPositions() selector not found");
 	}
 	if (_formEvent === buttons.STATE.edit || _formEvent === buttons.STATE.new) {
-
 		$selector.find("ul").sortable("enable");
 	} else {
-
 		$selector.find("ul").sortable("disable");
 	}
 }
@@ -1582,7 +1559,6 @@ function bindTaskProgress(data) {
 			decisionResult: false
 		};
 	} else {
-
 		obj = {
 			element: $("#" + elem.getId()),
 			showpercent: Number(_staticData.settings.taskShowPerc),
@@ -1603,9 +1579,7 @@ function bindTaskProgress(data) {
 		obj.percent
 	);
 	progressbar.on("change", function (values) {
-
 		progressbar.setStatusOnSuccess();
-
 
 		_pluginObj[BEC.PERCCOMPLETED] = values;
 		formHelper.setCompleteDate(values.status, _formObject, _staticData);
@@ -1640,7 +1614,6 @@ function _bindPluginsAfterFormRender(positionTypeId) {
 						preferences.PREFERENCE.HASPROJECTTASKS
 					)
 				) {
-
 					const elem = _formObject.getElementByName(BEC.LINKCOMM);
 					addFixedTooltip($("#" + elem.getId()).find("a"));
 
@@ -1657,7 +1630,6 @@ function _bindPluginsAfterFormRender(positionTypeId) {
 							privileges.PRIVILEGE.TASKDEPENDENCIES
 						)
 					) {
-
 						_formObject.__DEPRECATED__setValue(
 							BEC.LISTTASKS,
 							formHelper.getDependentTasksList(
@@ -1677,7 +1649,6 @@ function _bindPluginsAfterFormRender(positionTypeId) {
 						preferences.PREFERENCE.HASPROJECTTASKS
 					)
 				) {
-
 					const elem = _formObject.getElementByName(BEC.LINKCOMM);
 					addFixedTooltip($("#" + elem.getId()).find("a"));
 
@@ -1694,7 +1665,6 @@ function _bindPluginsAfterFormRender(positionTypeId) {
 							privileges.PRIVILEGE.TASKDEPENDENCIES
 						)
 					) {
-
 						_formObject.__DEPRECATED__setValue(
 							BEC.LISTTASKS,
 							formHelper.getDependentTasksList(
@@ -1747,10 +1717,8 @@ async function _resetDetails() {
 			? _options.addTask === 1
 			: false;
 	if (_tableObject.getCurrentRow() === null || isAddTask) {
-
 		await _removeDetails();
 	} else {
-
 		await _showForm(buttons.STATE.show, _getDataFromSelectedEntry());
 	}
 }
@@ -1784,7 +1752,6 @@ async function _showForm(setEvent, selection, contentId = null) {
 
 		const data = await servicesData.getPosData(para);
 		if (data !== null) {
-
 			if (
 				_.includes(
 					[
@@ -1801,7 +1768,6 @@ async function _showForm(setEvent, selection, contentId = null) {
 					data.basic.idPosType
 				)
 			) {
-
 				_formData = data;
 
 				await _createFormWidget(
@@ -1840,7 +1806,6 @@ async function _showForm(setEvent, selection, contentId = null) {
 					setIdToUrl(selection.jpos_posno);
 				} else {
 					_showFormButtons(setEvent);
-
 				}
 			} else {
 				showLoadingWarning("form not defined");
@@ -1850,7 +1815,6 @@ async function _showForm(setEvent, selection, contentId = null) {
 			await _removeDetails();
 		}
 	} else {
-
 		await _removeDetails();
 	}
 }
@@ -1972,15 +1936,12 @@ async function _saveForm(removeShowWarning, successWithInfoOptions) {
 
 		const json = await servicesData.setSavedPos(saveData, _isNewDataset);
 		if (json.stat.status === STATUS.SUCCESS) {
-
 			if (_isNewDataset) {
 				_tableSelectionPosNo = json.data.posNo;
 			}
 			await _saveCompleted(_tableSelectionPosNo);
 			return true;
 		} else if (json.stat.status === STATUS.INFO) {
-
-
 			if (
 				_.includes(Object.keys(json.data), "askSplitPos") ||
 				_.includes(Object.keys(json.data), "askHowToChange")
@@ -1991,7 +1952,6 @@ async function _saveForm(removeShowWarning, successWithInfoOptions) {
 		} else if (json.stat.status === STATUS.VALIDATE) {
 			await showWarningDialog(json.stat.message);
 		} else if (json.stat.status === STATUS.WARNING) {
-
 			await showSISaveConfirmDialog(json.data.warnings);
 		}
 	} else {
@@ -2011,7 +1971,6 @@ async function _saveCompleted(newPosNo) {
 			_isFormInDialogSelector
 		);
 	} else {
-
 		await _updateTableContent();
 	}
 }
@@ -2163,22 +2122,6 @@ async function deleteEntryJob(para) {
 		} else {
 			_tableSelectionPosNo = null;
 			await _updateTableContent();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		}
 	}
 }
@@ -2193,7 +2136,6 @@ async function deleteEntrySiCheck() {
 		listPosNos: selectedListPosNo
 	});
 	if (data.askSupplRemains) {
-
 		const ok = await confirmDialog(TC.askJobservicesStayAssigned);
 		if (ok) {
 			await deleteEntrySi(true);
@@ -2201,7 +2143,6 @@ async function deleteEntrySiCheck() {
 			await deleteEntrySi(false);
 		}
 	} else {
-
 		await deleteEntrySi(true);
 	}
 }
@@ -2224,7 +2165,6 @@ async function deleteEntrySi(supplRemains) {
 async function setDeletePosList(para) {
 	const result = await servicesData.setDeletePosList(para);
 	if (result) {
-
 		_tableSelectionPosNo = null;
 		await _updateTableContent();
 	}
@@ -2278,23 +2218,19 @@ async function _deleteEntry(disableWarnings = false) {
 }
 function showEnhanceEffect($selector, hiddenClassName, type = "slideandfade") {
 	switch (type) {
-
 		case "show":
 			$selector.removeClass(hiddenClassName);
 			break;
 		case "fold":
-
 			$selector.hide().removeClass(hiddenClassName).slideDown(500).show();
 			break;
 		case "fade":
-
 			$selector
 				.css({ opacity: 0 })
 				.removeClass(hiddenClassName)
 				.animate({ opacity: 1 }, 600);
 			break;
 		case "slideandfade":
-
 			$selector
 				.css({ opacity: 0 })
 				.hide()
@@ -2311,15 +2247,12 @@ function _setCalculationButton(positionTypeId) {
 		showButtonInTab = 1;
 	switch (_getModuleName()) {
 		case ModuleNameEnum.JOB:
-
 			showButtonInTab = 1;
 			break;
 		case ModuleNameEnum.SIHEADER:
-
 			showButtonInTab = 1;
 			break;
 		case ModuleNameEnum.CEHEADER:
-
 			showButtonInTab = 1;
 			break;
 		default:
@@ -2333,16 +2266,13 @@ function _setCalculationButton(positionTypeId) {
 			showButton = false;
 			break;
 		default:
-
 			break;
 	}
 	if (showButton) {
-
 		new UiButton(
 			TC.showCalculation,
 			"showCalcBtn",
 			async function () {
-
 				await _showCalculationDialog();
 			},
 			"calculator"
@@ -2353,16 +2283,13 @@ function _setEnhanceButton(positionTypeId) {
 	let showButton = true,
 		showButtonInTab = 1;
 	switch (_getModuleName()) {
-
 		case ModuleNameEnum.JOB:
 			showButtonInTab = 1;
 			break;
 		case ModuleNameEnum.SIHEADER:
-
 			showButtonInTab = 1;
 			break;
 		case ModuleNameEnum.CEHEADER:
-
 			showButtonInTab = 1;
 			break;
 		default:
@@ -2376,7 +2303,6 @@ function _setEnhanceButton(positionTypeId) {
 			showButton = false;
 			break;
 		default:
-
 			break;
 	}
 	if (showButton) {
@@ -2394,12 +2320,10 @@ function _setEnhanceButton(positionTypeId) {
 				);
 
 				if (COOKIE.get() === "true") {
-
 					$enhancedElements.addClass("enhanced_hidden");
 					switchButtonIcon(btnIcon, "caret-1-n", "caret-1-s");
 					COOKIE.set("false");
 				} else {
-
 					showEnhanceEffect($enhancedElements, "enhanced_hidden");
 					switchButtonIcon(btnIcon, "caret-1-s", "caret-1-n");
 					COOKIE.set("true");
@@ -2423,9 +2347,7 @@ function _setDefaultLayoutButton(positionTypeId, setEvent) {
 	);
 	console.log(_formObject.getPageIdWithElementName(BEC.POSITIONPRINT));
 	switch (setEvent) {
-
 		case buttons.STATE.edit:
-
 			if (
 				_getModuleName() === ModuleNameEnum.SIHEADER &&
 				_formData.settings[SETTINGS.CIEXISTS]
@@ -2434,12 +2356,10 @@ function _setDefaultLayoutButton(positionTypeId, setEvent) {
 			}
 
 			if ($selector.length === 0) {
-
 				new UiButton(
 					TC.defaultSettings,
 					"showDefaultBtn",
 					async function () {
-
 						if (_tableSelectionJobNo === null) {
 							throw new Error(
 								'In edit mode the variable "_tableSelectionJobNo" must have a number'
@@ -2459,7 +2379,6 @@ function _setDefaultLayoutButton(positionTypeId, setEvent) {
 			break;
 
 		default:
-
 			if ($selector.length === 1) {
 				$selector.remove();
 			}
@@ -2500,7 +2419,6 @@ async function showAssignResourcesDialog(appendTo) {
 }
 function _setCostsButton(positionTypeId, event) {
 	switch (event) {
-
 		case buttons.STATE.initialize:
 			break;
 
@@ -2550,9 +2468,7 @@ function _setCostsButton(positionTypeId, event) {
 }
 function reOpenTaskButton(positionTypeId, event) {
 	switch (_getModuleName()) {
-
 		case ModuleNameEnum.JOB:
-
 			if (positionTypeId !== POSITIONTYPES.SUBTOTAL) {
 				formHelper.addButtonReOpenTask(
 					_getModuleName(),
@@ -2634,7 +2550,6 @@ async function onDeleteAndMoveNCH() {
 			};
 			const result = await servicesData.setDeleteCiPosList(setDeleteData);
 			if (result) {
-
 				_tableSelectionPosNo = null;
 				await _updateTableContent();
 			}
@@ -2685,7 +2600,6 @@ async function onCancel() {
 }
 async function onCancelInDialog() {
 	if (_isNewDataset && _isFormInDialogSelector !== null) {
-
 		$(_isFormInDialogSelector).html("");
 
 		_showFormButtons(buttons.STATE.initialize);
@@ -2731,9 +2645,7 @@ function _showFormButtons(manualSetEvent) {
 	) {
 		s.editable = _formData.settings[SETTINGS.MODIFIABLE];
 
-
 		if (!s.editable) {
-
 			console.log(
 				"entry not editable: set _formEvent from",
 				_formEvent,
@@ -2754,7 +2666,6 @@ function _showFormButtons(manualSetEvent) {
 		toolbar = new SplitViewMenu.Toolbar("form");
 	}
 	switch (_formEvent) {
-
 		case buttons.STATE.initialize:
 			if (p.create && s.canBeCreated) {
 				toolbar.add(_buttonNewPositions());
@@ -2804,7 +2715,6 @@ function _showFormButtons(manualSetEvent) {
 
 		case buttons.STATE.reset:
 			if (p.create && s.canBeCreated) {
-
 				toolbar.add(_buttonNewPositions());
 			}
 			break;
@@ -2891,7 +2801,6 @@ async function _getNewPositionForm(postypeID) {
 			await _showFormNewPosition(buttons.STATE.new, postypeID);
 			break;
 		case ModuleNameEnum.SIHEADER:
-
 			await _showNewJobFromTemplateDialog(postypeID);
 			break;
 		case ModuleNameEnum.CEHEADER:
@@ -3096,7 +3005,6 @@ export async function renderFormInDialog(contentId, data, addTask = false) {
 		listEmpls: emailOfCurrentUser
 	};
 	if (addTask) {
-
 		_showFormButtons(buttons.STATE.initialize);
 		$("#newPosition button").trigger("click");
 	} else {

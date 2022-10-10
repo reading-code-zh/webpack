@@ -9,7 +9,7 @@ In addition to that, `library.js` simulates an entry point to a big library. `li
 # example.js
 
 ```javascript
-import { add } from './math';
+import { add } from "./math";
 import * as library from "./library";
 
 add(1, 2);
@@ -20,7 +20,10 @@ library.reexportedMultiply(1, 2);
 
 ```javascript
 export function add() {
-	var sum = 0, i = 0, args = arguments, l = args.length;
+	var sum = 0,
+		i = 0,
+		args = arguments,
+		l = args.length;
 	while (i < l) {
 		sum += args[i++];
 	}
@@ -28,7 +31,10 @@ export function add() {
 }
 
 export function multiply() {
-	var product = 1, i = 0, args = arguments, l = args.length;
+	var product = 1,
+		i = 0,
+		args = arguments,
+		l = args.length;
 	while (i < l) {
 		product *= args[i++];
 	}
@@ -151,67 +157,91 @@ function c() { console.log("c"); }
 
 <details><summary><code>/* webpack runtime code */</code></summary>
 
-``` js
+```js
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/
+/******/ // The require function
+/******/ function __webpack_require__(moduleId) {
+	/******/ // Check if module is in cache
+	/******/ var cachedModule = __webpack_module_cache__[moduleId];
+	/******/ if (cachedModule !== undefined) {
+		/******/ return cachedModule.exports;
+		/******/
+	}
+	/******/ // Create a new module (and put it into the cache)
+	/******/ var module = (__webpack_module_cache__[moduleId] = {
+		/******/ // no module.id needed
+		/******/ // no module.loaded needed
+		/******/ exports: {}
+		/******/
+	});
+	/******/
+	/******/ // Execute the module function
+	/******/ __webpack_modules__[moduleId](
+		module,
+		module.exports,
+		__webpack_require__
+	);
+	/******/
+	/******/ // Return the exports of the module
+	/******/ return module.exports;
+	/******/
+}
+/******/
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
+/******/ /* webpack/runtime/define property getters */
+/******/ (() => {
+	/******/ // define getter functions for harmony exports
+	/******/ __webpack_require__.d = (exports, definition) => {
+		/******/ for (var key in definition) {
+			/******/ if (
+				__webpack_require__.o(definition, key) &&
+				!__webpack_require__.o(exports, key)
+			) {
+				/******/ Object.defineProperty(exports, key, {
+					enumerable: true,
+					get: definition[key]
+				});
+				/******/
+			}
+			/******/
+		}
+		/******/
+	};
+	/******/
+})();
+/******/
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+	/******/ __webpack_require__.o = (obj, prop) =>
+		Object.prototype.hasOwnProperty.call(obj, prop);
+	/******/
+})();
+/******/
+/******/ /* webpack/runtime/make namespace object */
+/******/ (() => {
+	/******/ // define __esModule on exports
+	/******/ __webpack_require__.r = exports => {
+		/******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+			/******/ Object.defineProperty(exports, Symbol.toStringTag, {
+				value: "Module"
+			});
+			/******/
+		}
+		/******/ Object.defineProperty(exports, "__esModule", { value: true });
+		/******/
+	};
+	/******/
+})();
+/******/
 /************************************************************************/
 ```
 
 </details>
 
-``` js
+```js
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
@@ -239,7 +269,41 @@ _library__WEBPACK_IMPORTED_MODULE_1__.reexportedMultiply(1, 2);
 # dist/output.js
 
 ```javascript
-(()=>{"use strict";var r,e={451:(r,e,t)=>{function o(){for(var r=0,e=0,t=arguments,o=t.length;e<o;)r+=t[e++];return r}function n(){for(var r=1,e=0,t=arguments,o=t.length;e<o;)r*=t[e++];return r}t.d(e,{IH:()=>o,Jp:()=>n})}},t={};function o(r){var n=t[r];if(void 0!==n)return n.exports;var p=t[r]={exports:{}};return e[r](p,p.exports,o),p.exports}o.d=(r,e)=>{for(var t in e)o.o(e,t)&&!o.o(r,t)&&Object.defineProperty(r,t,{enumerable:!0,get:e[t]})},o.o=(r,e)=>Object.prototype.hasOwnProperty.call(r,e),(0,(r=o(451)).IH)(1,2),r.Jp(1,2)})();
+(() => {
+	"use strict";
+	var r,
+		e = {
+			451: (r, e, t) => {
+				function o() {
+					for (var r = 0, e = 0, t = arguments, o = t.length; e < o; )
+						r += t[e++];
+					return r;
+				}
+				function n() {
+					for (var r = 1, e = 0, t = arguments, o = t.length; e < o; )
+						r *= t[e++];
+					return r;
+				}
+				t.d(e, { IH: () => o, Jp: () => n });
+			}
+		},
+		t = {};
+	function o(r) {
+		var n = t[r];
+		if (void 0 !== n) return n.exports;
+		var p = (t[r] = { exports: {} });
+		return e[r](p, p.exports, o), p.exports;
+	}
+	(o.d = (r, e) => {
+		for (var t in e)
+			o.o(e, t) &&
+				!o.o(r, t) &&
+				Object.defineProperty(r, t, { enumerable: !0, get: e[t] });
+	}),
+		(o.o = (r, e) => Object.prototype.hasOwnProperty.call(r, e)),
+		(0, (r = o(451)).IH)(1, 2),
+		r.Jp(1, 2);
+})();
 ```
 
 # Info

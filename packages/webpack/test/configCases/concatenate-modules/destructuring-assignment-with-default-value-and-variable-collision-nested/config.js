@@ -1,7 +1,7 @@
 export default {
-  deeply: {
-    nested: {
-      thing: 'Correct value',
-    },
-  },
+	deeply: {
+		nested: {
+			thing: "Correct value"
+		}
+	}
 };

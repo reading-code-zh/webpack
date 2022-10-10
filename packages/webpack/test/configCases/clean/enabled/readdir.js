@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 function handlePath(path) {
 	return path.replace(/\\/g, "/");
@@ -35,4 +35,4 @@ module.exports = function readDir(from) {
 		files: collectedFiles,
 		directories: collectedDirectories
 	};
-}
+};

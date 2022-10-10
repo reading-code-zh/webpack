@@ -1,4 +1,4 @@
-it("should define __dirname and __filename", function() {
+it("should define __dirname and __filename", function () {
 	expect(__dirname).toBe("");
 	expect(__filename).toBe("index.js");
 	expect(require("./dir/file").dirname).toBe("dir");

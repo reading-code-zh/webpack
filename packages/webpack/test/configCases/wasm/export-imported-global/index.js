@@ -1,5 +1,5 @@
-it("should export imported global", function() {
-	return import("./module").then(function({ v, w, x, test }) {
+it("should export imported global", function () {
+	return import("./module").then(function ({ v, w, x, test }) {
 		if (WebAssembly.Global) {
 			expect(v.constructor).toBe(WebAssembly.Global);
 			expect(w.constructor).toBe(WebAssembly.Global);

@@ -67,9 +67,9 @@ export const Extend = /*#__PURE__*/ P.instance({
 	extend: O.extend
 });
 export const Foldable = /*#__PURE__*/ P.instance({
-	reduce: (b, f) => fa => (O.isNone(fa) ? b : f(b, fa.value)),
-	reduceRight: (b, f) => fa => (O.isNone(fa) ? b : f(fa.value, b)),
-	foldMap: M => f => fa => (O.isNone(fa) ? M.identity : f(fa.value))
+	reduce: (b, f) => fa => O.isNone(fa) ? b : f(b, fa.value),
+	reduceRight: (b, f) => fa => O.isNone(fa) ? b : f(fa.value, b),
+	foldMap: M => f => fa => O.isNone(fa) ? M.identity : f(fa.value)
 });
 export const forEachF = /*#__PURE__*/ P.implementForEachF()(
 	() => G => f => fa =>
@@ -124,8 +124,9 @@ export function getApplyIdentity(M) {
  */
 
 export function getApplyAssociative(S) {
-	return makeAssociative(y => x =>
-		O.isSome(x) && O.isSome(y) ? O.some(S.combine(y.value)(x.value)) : O.none
+	return makeAssociative(
+		y => x =>
+			O.isSome(x) && O.isSome(y) ? O.some(S.combine(y.value)(x.value)) : O.none
 	);
 }
 /**
@@ -154,7 +155,7 @@ export function getLastIdentity() {
  */
 
 export function getLastAssociative() {
-	return makeAssociative(y => x => (O.isNone(x) ? x : y));
+	return makeAssociative(y => x => O.isNone(x) ? x : y);
 }
 /**
  * `Associative` returning the left-most non-`None` value
@@ -168,7 +169,7 @@ export function getLastAssociative() {
  */
 
 export function getFirstAssociative() {
-	return makeAssociative(y => x => (O.isNone(x) ? y : x));
+	return makeAssociative(y => x => O.isNone(x) ? y : x);
 }
 /**
  * `Identity` returning the left-most non-`None` value
@@ -195,19 +196,21 @@ export const getLast = (...items) => fold(getLastIdentity())(items);
  */
 
 export function getOrd(_) {
-	return makeOrd(getEqual(_).equals, y => x =>
-		x === y
-			? 0
-			: O.isSome(x)
-			? O.isSome(y)
-				? _.compare(y.value)(x.value)
-				: 1
-			: -1
+	return makeOrd(
+		getEqual(_).equals,
+		y => x =>
+			x === y
+				? 0
+				: O.isSome(x)
+				? O.isSome(y)
+					? _.compare(y.value)(x.value)
+					: 1
+				: -1
 	);
 }
 export const filter = predicate => fa =>
 	O.isNone(fa) ? O.none : predicate(fa.value) ? fa : O.none;
-export const filterMap = f => ma => (O.isNone(ma) ? O.none : f(ma.value));
+export const filterMap = f => ma => O.isNone(ma) ? O.none : f(ma.value);
 const defaultSeparate = {
 	left: O.none,
 	right: O.none
@@ -263,8 +266,10 @@ export const Compactable = /*#__PURE__*/ P.instance({
 	separate
 });
 export function getIdentity(A) {
-	return makeIdentity(O.none, y => x =>
-		O.isNone(x) ? y : O.isNone(y) ? x : O.some(A.combine(y.value)(x.value))
+	return makeIdentity(
+		O.none,
+		y => x =>
+			O.isNone(x) ? y : O.isNone(y) ? x : O.some(A.combine(y.value)(x.value))
 	);
 }
 export const alt = /*#__PURE__*/ P.orElseF(
@@ -294,13 +299,8 @@ export const tuple = /*#__PURE__*/ P.tupleF(
  * Matchers
  */
 
-export const {
-	match,
-	matchIn,
-	matchMorph,
-	matchTag,
-	matchTagIn
-} = /*#__PURE__*/ P.matchers(Covariant);
+export const { match, matchIn, matchMorph, matchTag, matchTagIn } =
+	/*#__PURE__*/ P.matchers(Covariant);
 /**
  * Conditionals
  */

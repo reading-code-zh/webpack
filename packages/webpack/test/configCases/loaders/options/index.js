@@ -1,4 +1,4 @@
-it("should get options", function() {
+it("should get options", function () {
 	expect(require("./a")).toStrictEqual({
 		arg: true,
 		arg1: null,

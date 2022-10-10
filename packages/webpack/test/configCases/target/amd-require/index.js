@@ -1,6 +1,6 @@
-it("should run", function() {});
+it("should run", function () {});
 
-it("should name require", function() {
+it("should name require", function () {
 	var fs = nodeRequire("fs");
 	var source = fs.readFileSync(__filename, "utf-8");
 

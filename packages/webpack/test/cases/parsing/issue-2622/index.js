@@ -4,11 +4,11 @@ function func(x = a, y = b) {
 	return [x, y];
 }
 
-var func2 = function(x = a, y = b) {
+var func2 = function (x = a, y = b) {
 	return [x, y];
-}
+};
 
-it("should import into default parameters", function() {
+it("should import into default parameters", function () {
 	expect(func()).toEqual(["a", "b"]);
 	expect(func2()).toEqual(["a", "b"]);
 	expect(func(1)).toEqual([1, "b"]);

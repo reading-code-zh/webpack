@@ -1,18 +1,18 @@
 # example.js
 
-``` javascript
+```javascript
 _{{example.js}}_
 ```
 
 # dist/output.js
 
-``` javascript
+```javascript
 _{{dist/output.js}}_
 ```
 
 # dist/577.output.js
 
-``` javascript
+```javascript
 _{{dist/577.output.js}}_
 ```
 

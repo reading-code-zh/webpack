@@ -1,5 +1,3 @@
 {
-  "browserslist": [
-    "maintained node versions"
-  ]
+  "browserslist": ["maintained node versions"]
 }

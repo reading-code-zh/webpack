@@ -30,27 +30,27 @@ const expectWarning = regexp => {
 it("should load the shared modules", async () => {
 	__webpack_share_scopes__["test-scope"] = {
 		package: {
-			"0": {
+			0: {
 				get: () => () => "shared package"
 			}
 		},
 		"@scoped/package": {
-			"0": {
+			0: {
 				get: () => Promise.resolve(() => "shared @scoped/package")
 			}
 		},
 		"prefix/a": {
-			"0": {
+			0: {
 				get: () => () => "shared prefix/a"
 			}
 		},
 		"prefix/deep/c": {
-			"0": {
+			0: {
 				get: () => () => "shared prefix/deep/c"
 			}
 		},
 		"./relative1": {
-			"0": {
+			0: {
 				get: () => () => "shared relative1"
 			}
 		}
@@ -194,7 +194,7 @@ it("should handle version matching correctly in strict and singleton mode", asyn
 		singleton: {
 			"1.1.1": {
 				get: () => () => "shared singleton",
-				from: 'container-a'
+				from: "container-a"
 			}
 		},
 		singletonWithoutVersion: {

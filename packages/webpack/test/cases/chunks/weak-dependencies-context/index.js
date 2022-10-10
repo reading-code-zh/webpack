@@ -1,4 +1,4 @@
-it("should not include a module with a weak dependency using context", function() {
+it("should not include a module with a weak dependency using context", function () {
 	var fileA = "a";
 	var fileB = "b";
 	var fileC = "c";

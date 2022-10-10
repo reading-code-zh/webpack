@@ -181,15 +181,11 @@
     "*.js|{lib,setup,bin,hot,tooling,schemas}/**/*.js|test/*.js|{test,examples}/**/webpack.config.js}": [
       "eslint --cache"
     ],
-    "*.{ts,json,yml,yaml,md}|examples/*.md": [
-      "prettier --check"
-    ]
+    "*.{ts,json,yml,yaml,md}|examples/*.md": ["prettier --check"]
   },
   "jest": {
     "forceExit": true,
-    "setupFilesAfterEnv": [
-      "<rootDir>/test/setupTestFramework.js"
-    ],
+    "setupFilesAfterEnv": ["<rootDir>/test/setupTestFramework.js"],
     "testMatch": [
       "<rootDir>/test/*.test.js",
       "<rootDir>/test/*.basictest.js",
@@ -222,9 +218,7 @@
       "<rootDir>/coverage",
       "<rootDir>/.eslintcache"
     ],
-    "transformIgnorePatterns": [
-      "<rootDir>"
-    ],
+    "transformIgnorePatterns": ["<rootDir>"],
     "coverageDirectory": "<rootDir>/coverage",
     "coveragePathIgnorePatterns": [
       "\\.runtime\\.js$",
@@ -233,8 +227,6 @@
       "<rootDir>/node_modules"
     ],
     "testEnvironment": "node",
-    "coverageReporters": [
-      "json"
-    ]
+    "coverageReporters": ["json"]
   }
 }

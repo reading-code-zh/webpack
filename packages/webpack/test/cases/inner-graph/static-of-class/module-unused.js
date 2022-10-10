@@ -6,10 +6,10 @@ class NativeClass {
 	}
 }
 
-var TranspiledClass = /*#__PURE__*/ (function() {
+var TranspiledClass = /*#__PURE__*/ (function () {
 	x();
 	function C() {}
-	C.f = function() {
+	C.f = function () {
 		return 42;
 	};
 	return C;

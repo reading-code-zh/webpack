@@ -45,13 +45,13 @@ _{{dist/vendor.js}}_
 
 # dist/commons-utility2_js.js
 
-``` javascript
+```javascript
 _{{dist/commons-utility2_js.js}}_
 ```
 
 # dist/commons-utility3_js.js
 
-``` javascript
+```javascript
 _{{dist/commons-utility3_js.js}}_
 ```
 

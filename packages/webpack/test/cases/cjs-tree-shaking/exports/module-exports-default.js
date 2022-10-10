@@ -1,7 +1,7 @@
 class Test {
-    getString() {
-        return "hello";
-    }
+	getString() {
+		return "hello";
+	}
 }
 
 module.exports.default = Test;

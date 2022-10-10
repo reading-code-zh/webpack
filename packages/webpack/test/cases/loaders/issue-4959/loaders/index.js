@@ -1,6 +1,6 @@
-module.exports = function() {
+module.exports = function () {
 	var callback = this.async();
-	this.loadModule("b", function(error) {
+	this.loadModule("b", function (error) {
 		if (error) {
 			return callback(error);
 		}

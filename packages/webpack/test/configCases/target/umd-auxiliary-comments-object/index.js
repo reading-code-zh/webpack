@@ -1,8 +1,6 @@
-it("should run", function() {
+it("should run", function () {});
 
-});
-
-it("should have auxiliary comments", function() {
+it("should have auxiliary comments", function () {
 	var fs = require("fs");
 	var source = fs.readFileSync(__filename, "utf-8");
 

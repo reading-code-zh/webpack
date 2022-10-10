@@ -5,7 +5,7 @@ import value4 from "./module?]";
 import value5 from "./module?{";
 import value6 from "./module?}";
 
-it("should not break on name conflicts", function() {
+it("should not break on name conflicts", function () {
 	expect(value1).toBe("a");
 	expect(value2).toBe("a");
 	expect(value3).toBe("a");

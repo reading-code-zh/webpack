@@ -1,6 +1,6 @@
 # example.js
 
-``` javascript
+```javascript
 var a = require("./a");
 
 // get module id
@@ -13,19 +13,18 @@ delete require.cache[aId];
 var a2 = require("./a");
 
 // verify it
-if(a == a2) throw new Error("Cache clear failed :(");
+if (a == a2) throw new Error("Cache clear failed :(");
 ```
 
 # a.js
 
-
-``` javascript
+```javascript
 module.exports = Math.random();
 ```
 
 # dist/output.js
 
-``` javascript
+```javascript
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ([
 /* 0 */
@@ -68,50 +67,57 @@ module.exports = Math.random();
 
 <details><summary><code>/* webpack runtime code */</code></summary>
 
-``` js
+```js
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			loaded: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = __webpack_module_cache__;
-/******/ 	
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/
+/******/ // The require function
+/******/ function __webpack_require__(moduleId) {
+	/******/ // Check if module is in cache
+	/******/ var cachedModule = __webpack_module_cache__[moduleId];
+	/******/ if (cachedModule !== undefined) {
+		/******/ return cachedModule.exports;
+		/******/
+	}
+	/******/ // Create a new module (and put it into the cache)
+	/******/ var module = (__webpack_module_cache__[moduleId] = {
+		/******/ id: moduleId,
+		/******/ loaded: false,
+		/******/ exports: {}
+		/******/
+	});
+	/******/
+	/******/ // Execute the module function
+	/******/ __webpack_modules__[moduleId](
+		module,
+		module.exports,
+		__webpack_require__
+	);
+	/******/
+	/******/ // Flag the module as loaded
+	/******/ module.loaded = true;
+	/******/
+	/******/ // Return the exports of the module
+	/******/ return module.exports;
+	/******/
+}
+/******/
+/******/ // expose the module cache
+/******/ __webpack_require__.c = __webpack_module_cache__;
+/******/
 /************************************************************************/
 ```
 
 </details>
 
-``` js
-/******/ 	
+```js
+/******/
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	var __webpack_exports__ = __webpack_require__(0);
-/******/ 	
+/******/
 /******/ })()
 ;
 ```

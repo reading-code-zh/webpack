@@ -685,7 +685,7 @@ export type AssetGeneratorDataUrl =
  */
 export type AssetGeneratorDataUrlFunction = (
 	source: string | Buffer,
-	context: {filename: string; module: import("../lib/Module")}
+	context: { filename: string; module: import("../lib/Module") }
 ) => string;
 /**
  * Generator options for asset modules.
@@ -706,7 +706,7 @@ export type AssetModuleOutputPath =
  */
 export type AssetParserDataUrlFunction = (
 	source: string | Buffer,
-	context: {filename: string; module: import("../lib/Module")}
+	context: { filename: string; module: import("../lib/Module") }
 ) => boolean;
 /**
  * A Function returning a Promise resolving to a normalized entry.

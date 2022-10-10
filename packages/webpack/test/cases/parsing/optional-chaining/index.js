@@ -13,7 +13,11 @@ it("should keep optional chaining", () => {
 it("should evaluate optional members", () => {
 	if (!module.hot) {
 		expect(
-			module.hot?.accept((() => {throw new Error("fail")})())
+			module.hot?.accept(
+				(() => {
+					throw new Error("fail");
+				})()
+			)
 		).toBe(undefined);
 	}
 });

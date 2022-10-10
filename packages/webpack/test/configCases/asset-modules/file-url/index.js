@@ -1,4 +1,4 @@
-import {val1, val2} from "./temp/index.js";
+import { val1, val2 } from "./temp/index.js";
 import expected from "./src with spaces/module";
 
 it("file url request should be supported", () => {

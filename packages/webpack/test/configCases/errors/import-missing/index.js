@@ -1,6 +1,6 @@
 var never = false;
 
-it("should not crash on missing requires", function() {
+it("should not crash on missing requires", function () {
 	if (never) {
 		require("./a");
 		require("./b");

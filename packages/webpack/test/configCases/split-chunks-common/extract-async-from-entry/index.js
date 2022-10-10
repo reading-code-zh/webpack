@@ -1,1 +1,1 @@
-it("should run successful", function() {});
+it("should run successful", function () {});

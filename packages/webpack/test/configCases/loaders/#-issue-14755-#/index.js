@@ -1,4 +1,4 @@
-import regexp from './#.my';
+import regexp from "./#.my";
 
 it("should load regexp correctly", () => {
 	expect(regexp.test("1")).toBe(false);

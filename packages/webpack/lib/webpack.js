@@ -59,12 +59,20 @@ const createMultiCompiler = (childOptions, options) => {
  * @returns {Compiler} a compiler
  */
 const createCompiler = rawOptions => {
+	// 归一化 options，将部分配置转换成 webpack 需要的格式
 	const options = getNormalizedWebpackOptions(rawOptions);
+	// 创建context上下文，取的是process.cwd()
 	applyWebpackOptionsBaseDefaults(options);
+
+	// 创建 complier 的实例
 	const compiler = new Compiler(options.context, options);
+
+	// 初始化流插件
 	new NodeEnvironmentPlugin({
 		infrastructureLogging: options.infrastructureLogging
 	}).apply(compiler);
+
+	// 初始化用户配置的插件，注册插件钩子
 	if (Array.isArray(options.plugins)) {
 		for (const plugin of options.plugins) {
 			if (typeof plugin === "function") {
@@ -74,10 +82,16 @@ const createCompiler = rawOptions => {
 			}
 		}
 	}
+
+	// 进一步优化options，给一些配置赋上默认值
 	applyWebpackOptionsDefaults(options);
+
 	compiler.hooks.environment.call();
 	compiler.hooks.afterEnvironment.call();
+
+	// 初始化 webpack 内部插件，例如 js 解析器、缓存插件、添加入口的插件等。
 	new WebpackOptionsApply().process(options, compiler);
+
 	compiler.hooks.initialize.call();
 	return compiler;
 };

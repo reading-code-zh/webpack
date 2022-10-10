@@ -1,7 +1,7 @@
 # pageA.js
 
 ```javascript
-require(["./common"], function(common) {
+require(["./common"], function (common) {
 	common(require("./a"));
 });
 ```
@@ -9,7 +9,7 @@ require(["./common"], function(common) {
 # pageB.js
 
 ```javascript
-require(["./common"], function(common) {
+require(["./common"], function (common) {
 	common(require("./b"));
 });
 ```
@@ -17,7 +17,7 @@ require(["./common"], function(common) {
 # pageC.js
 
 ```javascript
-require(["./a"], function(a) {
+require(["./a"], function (a) {
 	console.log(a + require("./b"));
 });
 ```

@@ -1,5 +1,3 @@
 {
-  "sideEffects": [
-    "./reexport.js"
-  ]
+  "sideEffects": ["./reexport.js"]
 }

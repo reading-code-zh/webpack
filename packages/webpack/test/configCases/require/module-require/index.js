@@ -3,18 +3,26 @@ import { createRequire as __createRequire, builtinModules } from "module";
 
 it("should evaluate require/createRequire", () => {
 	expect(
-		(function() { return typeof _createRequire; }).toString()
+		function () {
+			return typeof _createRequire;
+		}.toString()
 	).toBe('function() { return "function"; }');
 	expect(
-		(function() { if (typeof _createRequire); }).toString()
-	).toBe('function() { if (true); }');
+		function () {
+			if (typeof _createRequire);
+		}.toString()
+	).toBe("function() { if (true); }");
 	const require = __createRequire(import.meta.url);
 	expect(
-		(function() { return typeof require; }).toString()
+		function () {
+			return typeof require;
+		}.toString()
 	).toBe('function() { return "function"; }');
 	expect(
-		(function() { if (typeof require); }).toString()
-	).toBe('function() { if (true); }');
+		function () {
+			if (typeof require);
+		}.toString()
+	).toBe("function() { if (true); }");
 });
 
 it("should create require", () => {

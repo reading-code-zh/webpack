@@ -1,1 +1,1 @@
-export const obj = {require, r: require}
+export const obj = { require, r: require };

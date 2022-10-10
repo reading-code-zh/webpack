@@ -1,4 +1,4 @@
-it("should emit valid code for dynamic require string with expr", function() {
+it("should emit valid code for dynamic require string with expr", function () {
 	var test = require("./folder/file");
 	expect(test("file")).toEqual({ a: false, b: false, c: true, d: true });
 	expect(test("file.js")).toEqual({ a: false, b: false, c: false, d: true });

@@ -1,5 +1,5 @@
 const f = () => "ok";
-f.x = function() {
+f.x = function () {
 	return this();
 };
 export { f };

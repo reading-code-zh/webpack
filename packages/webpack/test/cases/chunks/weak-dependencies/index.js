@@ -1,4 +1,4 @@
-it("should not include a module with a weak dependency", function() {
+it("should not include a module with a weak dependency", function () {
 	var a = !!__webpack_modules__[require.resolveWeak("./a")];
 	var b = !!__webpack_modules__[require.resolve("./b")];
 	var c = !!__webpack_modules__[require.resolveWeak("./c")];

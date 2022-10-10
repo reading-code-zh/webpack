@@ -1,4 +1,4 @@
-import {value} from "dep1";
+import { value } from "dep1";
 
 export const val = value;
 

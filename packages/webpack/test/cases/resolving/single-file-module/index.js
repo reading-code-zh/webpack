@@ -1,3 +1,3 @@
-it("should load single file modules", function() {
+it("should load single file modules", function () {
 	expect(require("subfilemodule")).toBe("subfilemodule");
 });

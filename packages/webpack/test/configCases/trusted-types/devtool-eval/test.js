@@ -1,5 +1,5 @@
 var test = {
-	foo: 'bar'
+	foo: "bar"
 };
 
 module.exports = test;

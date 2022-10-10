@@ -1,3 +1,3 @@
-it("should compile expr in ?: operator", function() {
+it("should compile expr in ?: operator", function () {
 	require("./dir/test");
 });

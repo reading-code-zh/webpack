@@ -14,7 +14,7 @@ module.exports = function a() {
 			return 0 == 1 ? 107 : 108;
 		}
 	}
-	var d = (function() {
+	var d = (function () {
 		"use asm";
 		return 1 == 1 ? 109 : 110;
 	})();

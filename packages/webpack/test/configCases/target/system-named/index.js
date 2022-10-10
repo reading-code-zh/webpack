@@ -2,4 +2,4 @@
  * the library name to System during the System.register
  */
 
-it("should call System.register with a name", function() {});
+it("should call System.register with a name", function () {});

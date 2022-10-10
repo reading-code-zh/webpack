@@ -1,4 +1,4 @@
-it("should replace a context with a new regExp", function() {
+it("should replace a context with a new regExp", function () {
 	function rqInContext(x) {
 		return require(x);
 	}

@@ -1,5 +1,5 @@
 "use strict";
-it("should include only one use strict per module", function() {
+it("should include only one use strict per module", function () {
 	require("./harmony-with-strict");
 	require("./harmony-without-strict");
 	require("./harmony-with-strict2");

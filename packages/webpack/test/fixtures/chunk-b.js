@@ -1,3 +1,3 @@
 module.exports = () => {
-  return import(/* webpackChunkName: "chunkB" */ "./b");
+	return import(/* webpackChunkName: "chunkB" */ "./b");
 };

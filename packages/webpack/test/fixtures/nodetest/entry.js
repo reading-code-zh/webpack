@@ -1,5 +1,5 @@
-exports.loadChunk = function(id, cb) {
-	require(["./file" + id], function(result) {
+exports.loadChunk = function (id, cb) {
+	require(["./file" + id], function (result) {
 		cb(result);
 	});
 };

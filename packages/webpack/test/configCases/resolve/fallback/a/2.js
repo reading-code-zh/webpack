@@ -1,1 +1,1 @@
-module.exports = 'not 2';
+module.exports = "not 2";

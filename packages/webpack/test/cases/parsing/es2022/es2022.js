@@ -1,4 +1,4 @@
-import { "\0 add" as add } from './reexport';
+import { "\0 add" as add } from "./reexport";
 
 export default class Foo {
 	static {

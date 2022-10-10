@@ -1257,6 +1257,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @returns {void}
 	 */
 	addModule(module, callback) {
+		// 执行_addModule
 		this.addModuleQueue.add(module, callback);
 	}
 
@@ -1269,6 +1270,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	_addModule(module, callback) {
 		const identifier = module.identifier();
 		const alreadyAddedModule = this._modules.get(identifier);
+		// 是否已存在
 		if (alreadyAddedModule) {
 			return callback(null, alreadyAddedModule);
 		}
@@ -1294,7 +1296,10 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 				module = cacheModule;
 			}
 			this._modules.set(identifier, module);
+
+			// module 添加到 compilation.modules 里
 			this.modules.add(module);
+
 			if (this._backCompat)
 				ModuleGraph.setModuleGraphForModule(module, this.moduleGraph);
 			if (currentProfile !== undefined) {
@@ -1331,11 +1336,11 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @returns {void}
 	 */
 	buildModule(module, callback) {
-		// 创建loader上下文
+		// 创建 loader上下文
 		// runLoaders，通过enhanced-resolve解析得到的模块和loader的路径获取函数，执行loader
-		// 调用JavascriptParser.js将loader执行完的源码解析成ast(使用了acorn工具)，这步会生成当前模块的以来集合
-		// 生成模块的hash
-		// 缓存解析完的module至_modulesCache，此时已经有_source(解析后的源码)
+		// 调用 JavascriptParser.js 将loader执行完的源码解析成ast(使用了acorn工具)，这步会生成当前模块的以来集合
+		// 生成模块的 hash
+		// 缓存解析完的 module 至 _modulesCache，此时已经有 _source(解析后的源码)
 
 		this.buildQueue.add(module, callback);
 	}
@@ -1348,6 +1353,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @returns {void}
 	 */
 	_buildModule(module, callback) {
+		// 创建loader上下文
 		const currentProfile = this.profile
 			? this.moduleGraph.getProfile(module)
 			: undefined;
@@ -1374,6 +1380,8 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 
 				this.hooks.buildModule.call(module);
 				this.builtModules.add(module);
+
+				// NormalModule.js 看 build 源码，
 				module.build(
 					this.options,
 					this,
@@ -1803,6 +1811,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 					}
 				}
 
+				// factorizeModule 这个函数就是为了创建一个module对象，它的callback中的newModule就是新创建的module
 				const newModule = factoryResult.module;
 
 				if (!newModule) {
@@ -1814,7 +1823,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 					moduleGraph.setProfile(newModule, currentProfile);
 				}
 
-				// 存储module
+				// 存储 module
 				this.addModule(newModule, (err, module) => {
 					if (err) {
 						applyFactoryResultDependencies();
@@ -1838,11 +1847,13 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 							);
 						for (let i = 0; i < dependencies.length; i++) {
 							const dependency = dependencies[i];
+
 							moduleGraph.setResolvedModule(
 								connectOrigin ? originModule : null,
 								dependency,
 								unsafeCacheableModule
 							);
+
 							unsafeCacheDependencies.set(dependency, unsafeCacheableModule);
 						}
 						if (!unsafeCacheData.has(unsafeCacheableModule)) {
@@ -1925,6 +1936,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			}
 		}
 
+		// build 模块
 		this.buildModule(module, err => {
 			if (creatingModuleDuringBuildSet !== undefined) {
 				creatingModuleDuringBuildSet.delete(module);
@@ -1975,9 +1987,12 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 		},
 		callback
 	) {
+		// add 后自定执行函数
 		if (currentProfile !== undefined) {
 			currentProfile.markFactoryStart();
 		}
+		// factory 就是 NormalModuleFactory，常规模块工厂。
+		// == NormalModuleFactory.create
 		factory.create(
 			{
 				contextInfo: {
@@ -2059,6 +2074,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @param {ModuleCallback} callback callback for when module chain is complete
 	 * @returns {void} will throw if dependency instance is not a valid Dependency
 	 */
+	// 最重要的一步，依赖模块树
 	addModuleTree({ context, dependency, contextInfo }, callback) {
 		if (
 			typeof dependency !== "object" ||
@@ -2069,10 +2085,13 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 				new WebpackError("Parameter 'dependency' must be a Dependency")
 			);
 		}
+
+		// TODO: 知乎 明天
 		const Dep = /** @type {DepConstructor} */ (dependency.constructor);
-		
-		// 获取在EntryPlugin存入的 dependencyFactories 中的 moduleFactory
+
+		// 获取在 EntryPlugin 存入的 dependencyFactories 中的 moduleFactory
 		const moduleFactory = this.dependencyFactories.get(Dep);
+		console.log("moduleFactory", moduleFactory);
 		if (!moduleFactory) {
 			return callback(
 				new WebpackError(
@@ -2120,7 +2139,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 				? optionsOrName
 				: { name: optionsOrName };
 
-		// 存入 this.entryies,后续构建chunk遍历的是该map对象
+		// 存入 this.entryies, 后续构建 chunk 遍历的是该 map 对象
 		this._addEntryItem(context, entry, "dependencies", options, callback);
 	}
 
@@ -2163,6 +2182,8 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 				}
 			};
 			entryData[target].push(entry);
+
+			// this.entries
 			this.entries.set(name, entryData);
 		} else {
 			entryData[target].push(entry);
@@ -2188,6 +2209,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			}
 		}
 
+		// TODO: entry 的加载
 		this.hooks.addEntry.call(entry, options);
 
 		this.addModuleTree(
@@ -5180,11 +5202,13 @@ This prevents using hashes of each other and should be avoided.`);
  */
 
 // Workaround for typescript as it doesn't support function overloading in jsdoc within a class
+// 个函数就是为了创建一个module对象，它的callback中的newModule就是新创建的module，随后调用this.addModule()函数。
 Compilation.prototype.factorizeModule = /** @type {{
 	(options: FactorizeModuleOptions & { factoryResult?: false }, callback: ModuleCallback): void;
 	(options: FactorizeModuleOptions & { factoryResult: true }, callback: ModuleFactoryResultCallback): void;
 }} */ (
 	function (options, callback) {
+		// factorizeQueue 是一个异步的任务队列，任务队列发现有任务就会自动执行
 		this.factorizeQueue.add(options, callback);
 	}
 );

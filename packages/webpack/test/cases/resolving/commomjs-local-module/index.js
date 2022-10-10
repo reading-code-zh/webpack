@@ -1,16 +1,16 @@
-define("regular", function(require, exports, module) {
+define("regular", function (require, exports, module) {
 	module.exports = "regular-module";
 });
 
-define("override-exports", function(require, exports, module) {
+define("override-exports", function (require, exports, module) {
 	exports = "this one overrides exports reference";
 });
 
-define("return-module", function(require, exports, module) {
+define("return-module", function (require, exports, module) {
 	return "module is returned";
 });
 
-it("should make different modules for query", function() {
+it("should make different modules for query", function () {
 	expect(require("regular")).toBe("regular-module");
 	expect(require("return-module")).toBe("module is returned");
 

@@ -1,18 +1,18 @@
 var asyncLib = require("neo-async");
-module.exports = function(content) {
+module.exports = function (content) {
 	var cb = this.async();
 	var json = JSON.parse(content);
 	asyncLib.mapSeries(
 		json.imports,
-		function(url, callback) {
-			this.loadModule(url, function(err, source, map, module) {
+		function (url, callback) {
+			this.loadModule(url, function (err, source, map, module) {
 				if (err) {
 					return callback(err);
 				}
 				callback(null, JSON.parse(source));
 			});
 		}.bind(this),
-		function(err, results) {
+		function (err, results) {
 			if (err) {
 				return cb(err);
 			}
@@ -21,7 +21,7 @@ module.exports = function(content) {
 				null,
 				"module.exports = " +
 					JSON.stringify(
-						results.reduce(function(prev, result) {
+						results.reduce(function (prev, result) {
 							return { ...prev, ...result };
 						}, json)
 					)

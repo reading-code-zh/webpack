@@ -1,2 +1,2 @@
-import log from "./tla.js"
+import log from "./tla.js";
 log();

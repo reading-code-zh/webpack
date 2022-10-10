@@ -1,3 +1,3 @@
-module.exports = function() {
+module.exports = function () {
 	return "This is page B.";
 };

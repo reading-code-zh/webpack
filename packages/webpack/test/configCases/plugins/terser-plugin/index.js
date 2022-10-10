@@ -8,7 +8,7 @@ it("should contain no comments in out chunk", () => {
 	expect(source).not.toMatch(/[^\"]comment should be stripped test\.3[^\"]/);
 });
 
-it("should contain comments in vendors chunk", function() {
+it("should contain comments in vendors chunk", function () {
 	const fs = require("fs");
 	const path = require("path");
 
@@ -19,7 +19,7 @@ it("should contain comments in vendors chunk", function() {
 	expect(source).toMatch(" * comment should not be stripped vendors.3");
 });
 
-it("should extract comments to separate file", function() {
+it("should extract comments to separate file", function () {
 	const fs = require("fs");
 	const path = require("path");
 
@@ -34,7 +34,7 @@ it("should extract comments to separate file", function() {
 	expect(source).not.toMatch("comment should be stripped extract-test.4");
 });
 
-it("should remove extracted comments and insert a banner", function() {
+it("should remove extracted comments and insert a banner", function () {
 	const fs = require("fs");
 	const path = require("path");
 
@@ -49,7 +49,7 @@ it("should remove extracted comments and insert a banner", function() {
 	);
 });
 
-it("should pass mangle options", function() {
+it("should pass mangle options", function () {
 	const fs = require("fs");
 	const path = require("path");
 
@@ -60,7 +60,7 @@ it("should pass mangle options", function() {
 	);
 });
 
-it("should pass compress options", function() {
+it("should pass compress options", function () {
 	const fs = require("fs");
 	const path = require("path");
 

@@ -1,6 +1,6 @@
 var window = {};
 
-it("should be able to set the public path", function() {
+it("should be able to set the public path", function () {
 	var originalValue = __webpack_public_path__;
 
 	global.xyz = "xyz";

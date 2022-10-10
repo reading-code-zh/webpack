@@ -1,4 +1,4 @@
-it("should match a custom loader", function() {
+it("should match a custom loader", function () {
 	var a = require("./a");
 	expect(a).toEqual([
 		"a",

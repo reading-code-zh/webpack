@@ -1,4 +1,4 @@
-it("should replace a context with a manual map", function() {
+it("should replace a context with a manual map", function () {
 	function rqInContext(x) {
 		return require(x);
 	}
@@ -7,7 +7,7 @@ it("should replace a context with a manual map", function() {
 	expect(rqInContext("./c")).toBe("b");
 	expect(rqInContext("d")).toBe("d");
 	expect(rqInContext("./d")).toBe("d");
-	(expect(function() {
-		rqInContext("module-b")
-	}).toThrowError());
+	expect(function () {
+		rqInContext("module-b");
+	}).toThrowError();
 });

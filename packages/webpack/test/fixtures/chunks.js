@@ -1,3 +1,3 @@
-require.ensure(["./a"], function(require) {
+require.ensure(["./a"], function (require) {
 	require("./b");
 });

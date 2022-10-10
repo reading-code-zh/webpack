@@ -1,12 +1,4 @@
-import {
-	count,
-	mult,
-	inc,
-	incTruthy,
-	setCount,
-	multUsed,
-	incUsed
-} from "./a";
+import { count, mult, inc, incTruthy, setCount, multUsed, incUsed } from "./a";
 
 it("logical 'and' should work", () => {
 	setCount(1);

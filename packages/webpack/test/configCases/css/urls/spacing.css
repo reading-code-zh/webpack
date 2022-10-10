@@ -1,49 +1,47 @@
 spacing {
-  a: url('./img.png');
+	a: url("./img.png");
 }
 
 spacing {
-  b: url("./img.png");
+	b: url("./img.png");
 }
 
 spacing {
-  c: url(./img.png);
+	c: url(./img.png);
 }
 
 spacing {
-  d: url("./img.png#hash");
+	d: url("./img.png#hash");
 }
 
 spacing {
-  e: url(
-    "./img.png"
-  );
+	e: url("./img.png");
 }
 
 spacing {
-  f: green url( './img.png' ) xyz;
+	f: green url("./img.png") xyz;
 }
 
 spacing {
-  g: green url( "./img.png" ) xyz;
+	g: green url("./img.png") xyz;
 }
 
 spacing {
-  h: green url( ./img.png ) xyz;
+	h: green url(./img.png) xyz;
 }
 
 spacing {
-  i: green url(package/img.png) url(./img.png) xyz;
+	i: green url(package/img.png) url(./img.png) xyz;
 }
 
 spacing {
-  j: green url( "./img img.png" ) xyz;
+	j: green url("./img img.png") xyz;
 }
 
 spacing {
-  k: green url( './img img.png' ) xyz;
+	k: green url("./img img.png") xyz;
 }
 
 spacing {
-  l: green url(/img.png) xyz;
+	l: green url(/img.png) xyz;
 }

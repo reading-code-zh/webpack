@@ -1,6 +1,6 @@
 import { e, f, fNamed, fStar, fStarPartial, fStarPartial2 } from "./reexport";
 
-it("should be possible to reexport json data", function() {
+it("should be possible to reexport json data", function () {
 	expect(e.aa).toBe(1);
 	expect(e.bb).toBe(2);
 	expect(f).toEqual({

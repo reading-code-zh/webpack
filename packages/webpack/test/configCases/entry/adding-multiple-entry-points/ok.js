@@ -1,3 +1,3 @@
-it("should load correct entry", function() {
+it("should load correct entry", function () {
 	// ok
 });

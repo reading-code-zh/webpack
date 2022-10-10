@@ -1,3 +1,3 @@
-require(["./common"], function(common) {
+require(["./common"], function (common) {
 	common(require("./b"));
 });

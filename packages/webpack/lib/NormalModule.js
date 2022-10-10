@@ -784,6 +784,8 @@ class NormalModule extends Module {
 				return callback(error);
 			}
 
+			// _source =  ... 和 _ast = null，
+			// 这明显是要把 _source变成 _ast了
 			this._source = this.createSource(
 				options.context,
 				this.binary ? asBuffer(source) : asString(source),
@@ -816,6 +818,7 @@ class NormalModule extends Module {
 			this.buildInfo.buildDependencies = new LazySet();
 		}
 
+		// runLoaders，通过enhanced-resolve解析得到的模块和loader的路径获取函数，执行loader
 		runLoaders(
 			{
 				resource: this.resource,
@@ -933,6 +936,7 @@ class NormalModule extends Module {
 	 * @param {function(WebpackError=): void} callback callback function
 	 * @returns {void}
 	 */
+
 	build(options, compilation, resolver, fs, callback) {
 		this._forceBuild = false;
 		this._source = null;
@@ -986,11 +990,13 @@ class NormalModule extends Module {
 						keepOriginalOrder(this.dependencies)
 					)
 				);
+				// 生成模块的hash
 				this._initBuildHash(compilation);
 				this._lastSuccessfulBuildMeta = this.buildMeta;
 				return handleBuildDone();
 			};
 
+			// 缓存解析完的module至_modulesCache，此时已经有_source(解析后的源码)
 			const handleBuildDone = () => {
 				try {
 					hooks.beforeSnapshot.call(this);
@@ -1084,6 +1090,10 @@ class NormalModule extends Module {
 			let result;
 			try {
 				const source = this._source.source();
+
+				// parse 就是把 code 变成 ast
+				// 调用JavascriptParser.js将loader执行完的源码解析成ast(使用了acorn工具)，这步会生成当前模块的以来集合
+
 				result = this.parser.parse(this._ast || source, {
 					source,
 					current: this,
@@ -1095,6 +1105,7 @@ class NormalModule extends Module {
 				handleParseError(e);
 				return;
 			}
+
 			handleParseResult(result);
 		});
 	}

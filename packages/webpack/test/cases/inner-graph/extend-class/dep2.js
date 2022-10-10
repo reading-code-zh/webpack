@@ -3,9 +3,15 @@ export class B {}
 export class C {}
 export class Y {}
 export class Z {}
-export function mixin1(_class) {return _class}
-export function mixin2(_class) {return _class}
-export function mixin3(_class) {return _class}
+export function mixin1(_class) {
+	return _class;
+}
+export function mixin2(_class) {
+	return _class;
+}
+export function mixin3(_class) {
+	return _class;
+}
 
 export const exportsInfoForA = __webpack_exports_info__.A.used;
 export const exportsInfoForB = __webpack_exports_info__.B.used;

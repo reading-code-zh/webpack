@@ -1,4 +1,4 @@
-it("should run", function() {
+it("should run", function () {
 	var a = require("a");
 	expect(a).toBe("a");
 	var b = require("b");
@@ -9,6 +9,6 @@ it("should run", function() {
 	expect(d).toBe("d");
 });
 
-it("should be main", function() {
+it("should be main", function () {
 	expect(require.main).toBe(module);
 });

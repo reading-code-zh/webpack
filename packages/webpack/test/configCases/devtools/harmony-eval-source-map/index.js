@@ -1,2 +1,2 @@
-export {}
-it("should run fine", function() {});
+export {};
+it("should run fine", function () {});

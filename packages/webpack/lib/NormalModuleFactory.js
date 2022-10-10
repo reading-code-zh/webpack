@@ -260,12 +260,14 @@ class NormalModuleFactory extends ModuleFactory {
 			parseResourceWithoutFragment.bindCache(associatedObjectForCache);
 		this._parseResourceWithoutFragment = cachedParseResourceWithoutFragment;
 
+		// 触发 resolve,收集 loaders
 		this.hooks.factorize.tapAsync(
 			{
 				name: "NormalModuleFactory",
 				stage: 100
 			},
 			(resolveData, callback) => {
+				// 收集 loaders 的一个地方，后面看 loader 的收集过程
 				this.hooks.resolve.callAsync(resolveData, (err, result) => {
 					if (err) return callback(err);
 
@@ -297,6 +299,7 @@ class NormalModuleFactory extends ModuleFactory {
 
 						const createData = resolveData.createData;
 
+						//  createModule事件，
 						this.hooks.createModule.callAsync(
 							createData,
 							resolveData,
@@ -305,7 +308,7 @@ class NormalModuleFactory extends ModuleFactory {
 									if (!resolveData.request) {
 										return callback(new Error("Empty dependency (no request)"));
 									}
-
+									// 得到了 createdModule
 									createdModule = new NormalModule(
 										/** @type {NormalModuleCreateData} */ (createData)
 									);
@@ -317,6 +320,7 @@ class NormalModuleFactory extends ModuleFactory {
 									resolveData
 								);
 
+								//nmf.create 得到了一个module对象
 								return callback(null, createdModule);
 							}
 						);
@@ -793,6 +797,7 @@ class NormalModuleFactory extends ModuleFactory {
 					)
 				);
 
+			// 触发 resolve，而 resolve 主要在收集 loaders
 			this.hooks.factorize.callAsync(resolveData, (err, module) => {
 				if (err) {
 					return callback(err, {

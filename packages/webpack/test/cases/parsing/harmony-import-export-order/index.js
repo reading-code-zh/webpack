@@ -1,4 +1,4 @@
-it("should process imports of star exports in the correct order", function() {
+it("should process imports of star exports in the correct order", function () {
 	var tracker = require("./tracker");
 	tracker.list.length = 0;
 	delete require.cache[require.resolve("./c")];

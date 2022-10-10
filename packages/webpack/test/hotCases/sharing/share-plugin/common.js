@@ -1,1 +1,1 @@
-export default 'common-lib'
+export default "common-lib";

@@ -1,10 +1,10 @@
-const locales = import.meta.webpackContext('./locales', {
+const locales = import.meta.webpackContext("./locales", {
 	recursive: false,
-	regExp: /(en|hu)\.json$/i,
+	regExp: /(en|hu)\.json$/i
 });
-const vuetify = import.meta.webpackContext('vuetify/lib/locale', {
+const vuetify = import.meta.webpackContext("vuetify/lib/locale", {
 	recursive: false,
-	regExp: /(en|hu)\.json$/i,
+	regExp: /(en|hu)\.json$/i
 });
 
 it('should resolve "./locales"', () => {
