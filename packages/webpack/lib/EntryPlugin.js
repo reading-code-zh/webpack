@@ -45,6 +45,7 @@ class EntryPlugin {
 		const dep = EntryPlugin.createDependency(entry, options);
 
 		compiler.hooks.make.tapAsync("EntryPlugin", (compilation, callback) => {
+			// 创建编译入口
 			compilation.addEntry(context, dep, options, err => {
 				callback(err);
 			});

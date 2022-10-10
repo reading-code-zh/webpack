@@ -1157,42 +1157,52 @@ ${other}`);
 	 * @returns {void}
 	 */
 	compile(callback) {
+		 //初始化构建需要的模块插件
 		const params = this.newCompilationParams();
 		this.hooks.beforeCompile.callAsync(params, err => {
 			if (err) return callback(err);
 
 			this.hooks.compile.call(params);
 
+			//创建构建实例，构建过程的内容都会保存在compilation中
 			const compilation = this.newCompilation(params);
 
 			const logger = compilation.getLogger("webpack.Compiler");
 
 			logger.time("make hook");
+
+			//开始构建模块
 			this.hooks.make.callAsync(compilation, err => {
 				logger.timeEnd("make hook");
 				if (err) return callback(err);
 
 				logger.time("finish make hook");
+
+				//模块构建完成
 				this.hooks.finishMake.callAsync(compilation, err => {
 					logger.timeEnd("finish make hook");
 					if (err) return callback(err);
 
 					process.nextTick(() => {
 						logger.time("finish compilation");
+						// 处理错误和告警
 						compilation.finish(err => {
 							logger.timeEnd("finish compilation");
 							if (err) return callback(err);
 
 							logger.time("seal compilation");
+
+							// 封装模块
 							compilation.seal(err => {
 								logger.timeEnd("seal compilation");
 								if (err) return callback(err);
 
 								logger.time("afterCompile hook");
+								// 编译完成
 								this.hooks.afterCompile.callAsync(compilation, err => {
 									logger.timeEnd("afterCompile hook");
 									if (err) return callback(err);
-
+									// 执行 onCompiled 回调
 									return callback(null, compilation);
 								});
 							});

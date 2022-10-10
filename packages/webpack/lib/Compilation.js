@@ -1331,6 +1331,12 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @returns {void}
 	 */
 	buildModule(module, callback) {
+		// 创建loader上下文
+		// runLoaders，通过enhanced-resolve解析得到的模块和loader的路径获取函数，执行loader
+		// 调用JavascriptParser.js将loader执行完的源码解析成ast(使用了acorn工具)，这步会生成当前模块的以来集合
+		// 生成模块的hash
+		// 缓存解析完的module至_modulesCache，此时已经有_source(解析后的源码)
+
 		this.buildQueue.add(module, callback);
 	}
 
@@ -1407,6 +1413,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @returns {void}
 	 */
 	processModuleDependencies(module, callback) {
+		// 获得模块依赖，重复 handleModuleCreation,创建模块实例
 		this.processDependenciesQueue.add(module, callback);
 	}
 
@@ -1807,6 +1814,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 					moduleGraph.setProfile(newModule, currentProfile);
 				}
 
+				// 存储module
 				this.addModule(newModule, (err, module) => {
 					if (err) {
 						applyFactoryResultDependencies();
@@ -2062,6 +2070,8 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			);
 		}
 		const Dep = /** @type {DepConstructor} */ (dependency.constructor);
+		
+		// 获取在EntryPlugin存入的 dependencyFactories 中的 moduleFactory
 		const moduleFactory = this.dependencyFactories.get(Dep);
 		if (!moduleFactory) {
 			return callback(
@@ -2071,6 +2081,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			);
 		}
 
+		// 开始创建模块实例
 		this.handleModuleCreation(
 			{
 				factory: moduleFactory,
@@ -2109,6 +2120,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 				? optionsOrName
 				: { name: optionsOrName };
 
+		// 存入 this.entryies,后续构建chunk遍历的是该map对象
 		this._addEntryItem(context, entry, "dependencies", options, callback);
 	}
 
