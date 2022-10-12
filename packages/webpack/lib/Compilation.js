@@ -2811,6 +2811,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @param {Callback} callback signals when the call finishes
 	 * @returns {void}
 	 */
+	//  该函数会创建 chunks、为每个 chunk 进行 codeGeneration，然后为每个 chunk 创建 asset
 	seal(callback) {
 		const finalCallback = err => {
 			this.factorizeQueue.clear();
@@ -3060,6 +3061,7 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 					this.hooks.beforeCodeGeneration.call();
 
 					// 生成代码
+					// 为每个 chunk 进行 codeGeneration
 					this.codeGeneration(err => {
 						if (err) {
 							return finalCallback(err);
