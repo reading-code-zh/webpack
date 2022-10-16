@@ -2820,6 +2820,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			this.addModuleQueue.clear();
 			return callback(err);
 		};
+		//步骤一： 遍历 compilation.modules ，记录下模块与 chunk 关系
 		const chunkGraph = new ChunkGraph(
 			this.moduleGraph,
 			this.outputOptions.hashFunction
@@ -2834,6 +2835,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 
 		this.hooks.seal.call();
 
+		// 步骤二： 触发各种模块优化钩子，这一步优化的主要是模块依赖关系
 		this.logger.time("optimize dependencies");
 		while (this.hooks.optimizeDependencies.call(this.modules)) {
 			/* empty */
@@ -2844,6 +2846,8 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 		this.logger.time("create chunks");
 		this.hooks.beforeChunks.call();
 		this.moduleGraph.freeze("seal");
+
+		//步骤三： 遍历 module 构建 chunk 集合
 		/** @type {Map<Entrypoint, Module[]>} */
 		const chunkGraphInit = new Map();
 		for (const [name, { dependencies, includeDependencies, options }] of this
@@ -2976,7 +2980,8 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 		buildChunkGraph(this, chunkGraphInit);
 		this.hooks.afterChunks.call(this.chunks);
 		this.logger.timeEnd("create chunks");
-
+		
+		//步骤4： 触发各种优化钩子
 		this.logger.time("optimize");
 		this.hooks.optimize.call();
 
