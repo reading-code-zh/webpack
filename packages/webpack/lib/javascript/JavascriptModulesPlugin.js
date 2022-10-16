@@ -679,6 +679,7 @@ class JavascriptModulesPlugin {
 	 * @param {Compilation} compilation the compilation
 	 * @returns {Source} the newly generated source from rendering
 	 */
+	// 生成代码
 	renderMain(renderContext, hooks, compilation) {
 		const { chunk, chunkGraph, runtimeTemplate } = renderContext;
 

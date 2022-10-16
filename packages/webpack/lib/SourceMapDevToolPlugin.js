@@ -161,7 +161,7 @@ class SourceMapDevToolPlugin {
 
 		compiler.hooks.compilation.tap("SourceMapDevToolPlugin", compilation => {
 			new SourceMapDevToolModuleOptionsPlugin(options).apply(compilation);
-
+			console.log(11111);
 			compilation.hooks.processAssets.tapAsync(
 				{
 					name: "SourceMapDevToolPlugin",
@@ -169,6 +169,7 @@ class SourceMapDevToolPlugin {
 					additionalAssets: true
 				},
 				(assets, callback) => {
+					console.log(111);
 					const chunkGraph = compilation.chunkGraph;
 					const cache = compilation.getCache("SourceMapDevToolPlugin");
 					/** @type {Map<string | Module, string>} */

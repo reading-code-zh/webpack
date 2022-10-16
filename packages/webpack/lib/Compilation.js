@@ -2850,8 +2850,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 		//步骤三： 遍历 module 构建 chunk 集合
 		/** @type {Map<Entrypoint, Module[]>} */
 		const chunkGraphInit = new Map();
-		for (const [name, { dependencies, includeDependencies, options }] of this
-			.entries) {
+		for (const [name, { dependencies, includeDependencies, options }] of this.entries) {
 			const chunk = this.addChunk(name);
 			if (options.filename) {
 				chunk.filenameTemplate = options.filename;
@@ -2980,8 +2979,8 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 		buildChunkGraph(this, chunkGraphInit);
 		this.hooks.afterChunks.call(this.chunks);
 		this.logger.timeEnd("create chunks");
-		
-		//步骤4： 触发各种优化钩子
+
+		// 步骤4： 触发各种优化钩子
 		this.logger.time("optimize");
 		this.hooks.optimize.call();
 
@@ -2990,10 +2989,12 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 		}
 		this.hooks.afterOptimizeModules.call(this.modules);
 
+		// SplitChunksPlugin 触发
 		while (this.hooks.optimizeChunks.call(this.chunks, this.chunkGroups)) {
 			/* empty */
 		}
 		this.hooks.afterOptimizeChunks.call(this.chunks, this.chunkGroups);
+
 
 		this.hooks.optimizeTree.callAsync(this.chunks, this.modules, err => {
 			if (err) {
@@ -3004,6 +3005,7 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 
 			this.hooks.afterOptimizeTree.call(this.chunks, this.modules);
 
+			// 触发 ModuleConcatenationPlugin
 			this.hooks.optimizeChunkModules.callAsync(
 				this.chunks,
 				this.modules,
@@ -3048,12 +3050,16 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 
 					this.logger.time("module hashing");
 					this.hooks.beforeModuleHash.call();
+
+					// hash 生成
 					this.createModuleHashes();
 					this.hooks.afterModuleHash.call();
 					this.logger.timeEnd("module hashing");
 
 					this.logger.time("code generation");
 					this.hooks.beforeCodeGeneration.call();
+
+					// 生成代码
 					this.codeGeneration(err => {
 						if (err) {
 							return finalCallback(err);
@@ -3069,6 +3075,7 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 
 						this.logger.time("hashing");
 						this.hooks.beforeHash.call();
+						// hash 生成
 						const codeGenerationJobs = this.createHash();
 						this.hooks.afterHash.call();
 						this.logger.timeEnd("hashing");
@@ -3088,11 +3095,14 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 							this.clearAssets();
 
 							this.hooks.beforeModuleAssets.call();
+							// module 转为静态文件
 							this.createModuleAssets();
 							this.logger.timeEnd("module assets");
 
 							const cont = () => {
 								this.logger.time("process assets");
+
+								// 压缩代码在这里执行 terser-webpack-plugin
 								this.hooks.processAssets.callAsync(this.assets, err => {
 									if (err) {
 										return finalCallback(
@@ -3464,6 +3474,8 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 						}
 						continue;
 					}
+
+					// additionalModuleRuntimeRequirements
 					additionalModuleRuntimeRequirements.call(module, set, context);
 
 					for (const r of set) {
@@ -3490,6 +3502,7 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 								false
 							);
 						} else {
+							// 注入 "__webpack_require__" module、
 							chunkGraph.addModuleRuntimeRequirements(module, runtime, set);
 						}
 					}
@@ -3508,6 +3521,8 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 				);
 				for (const r of runtimeRequirements) set.add(r);
 			}
+
+			// additionalChunkRuntimeRequirements
 			this.hooks.additionalChunkRuntimeRequirements.call(chunk, set, context);
 
 			for (const r of set) {
@@ -4276,6 +4291,7 @@ This prevents using hashes of each other and should be avoided.`);
 	 * @returns {void}
 	 */
 	emitAsset(file, source, assetInfo = {}) {
+		// 文件名称、代码、描述
 		if (this.assets[file]) {
 			if (!isSourceEqual(this.assets[file], source)) {
 				this.errors.push(
@@ -4361,6 +4377,8 @@ This prevents using hashes of each other and should be avoided.`);
 		newSourceOrFunction,
 		assetInfoUpdateOrFunction = undefined
 	) {
+		// assetInfoUpdateOrFunction ={minimized: true}
+
 		if (!this.assets[file]) {
 			throw new Error(
 				`Called Compilation.updateAsset for not existing filename ${file}`
@@ -4496,6 +4514,7 @@ This prevents using hashes of each other and should be avoided.`);
 				});
 			}
 		}
+		// [{name:'', source:,info}]
 		return array;
 	}
 
