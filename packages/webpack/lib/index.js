@@ -75,7 +75,7 @@ const lazyFunction = factory => {
  * @returns {A & B} merged
  */
 const mergeExports = (obj, exports) => {
-	console.log(100000);
+	// console.log(100000);
 	const descriptors = Object.getOwnPropertyDescriptors(exports);
 	for (const name of Object.keys(descriptors)) {
 		const descriptor = descriptors[name];
