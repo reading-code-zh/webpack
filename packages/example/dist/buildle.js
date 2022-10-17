@@ -10,11 +10,14 @@
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.js":
-((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const a = __webpack_require__( \"./src/index2.js\")\n\nconsole.log(a);\nconsole.log(9999);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const a = __webpack_require__(/*! ./index2 */ \"./src/index2.js\");\n\nconsole.log(a);\nconsole.log(9999);\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
- }),
+/***/ }),
 
 /***/ "./src/index2.js":
 /*!***********************!*\
@@ -22,7 +25,7 @@ eval("const a = __webpack_require__( \"./src/index2.js\")\n\nconsole.log(a);\nco
   \***********************/
 /***/ (() => {
 
-eval("console.log(22)\n\n\n//# sourceURL=webpack:///./src/index2.js?");
+eval("console.log(22);\n\n\n//# sourceURL=webpack:///./src/index2.js?");
 
 /***/ })
 
@@ -30,7 +33,7 @@ eval("console.log(22)\n\n\n//# sourceURL=webpack:///./src/index2.js?");
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -44,20 +47,20 @@ eval("console.log(22)\n\n\n//# sourceURL=webpack:///./src/index2.js?");
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
-/******/
+/******/ 	
 /******/ })()
 ;

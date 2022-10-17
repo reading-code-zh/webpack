@@ -120,6 +120,7 @@ const webpack = /** @type {WebpackFunctionSingle & WebpackFunctionMulti} */ (
 	 * @returns {Compiler | MultiCompiler}
 	 */
 	(options, callback) => {
+		console.log("webpack start", options, "callback", callback);
 		const create = () => {
 			if (!asArray(options).every(webpackOptionsSchemaCheck)) {
 				getValidateSchema()(webpackOptionsSchema, options);

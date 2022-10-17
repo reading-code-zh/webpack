@@ -42,10 +42,12 @@ class EntryPlugin {
 		);
 
 		const { entry, options, context } = this;
+		console.log("EntryPlugin apply", entry);
+		// 创建 Dependency 对象，将 entry 拿到并赋值
 		const dep = EntryPlugin.createDependency(entry, options);
-
 		compiler.hooks.make.tapAsync("EntryPlugin", (compilation, callback) => {
 			// 入口插件,创建编译入口
+			console.log("EntryPlugin", dep);
 			compilation.addEntry(context, dep, options, err => {
 				callback(err);
 			});

@@ -235,10 +235,11 @@ class SideEffectsFlagPlugin {
 						stage: STAGE_DEFAULT
 					},
 					modules => {
+						console.log("SideEffectsFlagPlugin");
 						const logger = compilation.getLogger(
 							"webpack.SideEffectsFlagPlugin"
 						);
-
+						// 更新依赖
 						logger.time("update dependencies");
 						for (const module of modules) {
 							if (module.getSideEffectsConnectionState(moduleGraph) === false) {

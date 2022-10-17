@@ -1,6 +1,9 @@
 module.exports = {
+  mode: "development",
   entry: "./src/index.js",
-  // output: {
-  //   // filename: 'main.js'
-  // }
+  output: {
+    filename: 'buildle.js'
+  },
+  cache: false,
+
 };

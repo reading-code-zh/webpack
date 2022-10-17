@@ -298,6 +298,7 @@ class ProgressPlugin {
 		};
 
 		const entryAdd = (entry, options) => {
+			console.log("progress", entry);
 			entriesCount++;
 			if (entriesCount < 5 || entriesCount % 10 === 0) updateThrottled();
 		};
