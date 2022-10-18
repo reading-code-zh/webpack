@@ -33,3 +33,5 @@ compiler.run((err, stats) => { // [Stats Object](#stats-object)
     // ...
   });
 });
+
+// compiler.watch()
