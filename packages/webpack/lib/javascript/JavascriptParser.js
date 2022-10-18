@@ -1467,6 +1467,8 @@ class JavascriptParser extends Parser {
 	}
 
 	// Block pre walking iterates the scope for block variable declarations
+	// 对 ImportDeclaration 进行了检查
+	// 一旦发现 import ‘xxx’，就发触发 import 钩子，对应的监听函数会处理依赖
 	blockPreWalkStatements(statements) {
 		for (let index = 0, len = statements.length; index < len; index++) {
 			const statement = statements[index];
@@ -1475,6 +1477,8 @@ class JavascriptParser extends Parser {
 	}
 
 	// Walking iterates the statements and expressions and processes them
+	// 对 importExpression 进行了检查，一旦发现 import('xxx')，就会触发 importCall 钩子，
+	// 对应的监听函数就会把对应的文件放到需要处理的模块中
 	walkStatements(statements) {
 		for (let index = 0, len = statements.length; index < len; index++) {
 			const statement = statements[index];

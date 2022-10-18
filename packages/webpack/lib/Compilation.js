@@ -1773,9 +1773,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 		callback
 	) {
 		const moduleGraph = this.moduleGraph;
-
 		const currentProfile = this.profile ? new ModuleProfile() : undefined;
-
 		this.factorizeModule(
 			{
 				currentProfile,
@@ -1813,7 +1811,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 
 				// factorizeModule 这个函数就是为了创建一个module对象，它的callback中的newModule就是新创建的module
 				const newModule = factoryResult.module;
-
+				console.log("newModule", newModule);
 				if (!newModule) {
 					applyFactoryResultDependencies();
 					return callback();
@@ -2086,12 +2084,13 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			);
 		}
 
-		// TODO: 知乎 明天
+		// TODO: 明天
 		const Dep = /** @type {DepConstructor} */ (dependency.constructor);
 
+		console.log("addModuleTree Dep", Dep.name);
 		// 获取在 EntryPlugin 存入的 dependencyFactories 中的 moduleFactory
 		const moduleFactory = this.dependencyFactories.get(Dep);
-		console.log("moduleFactory", moduleFactory);
+		// console.log("addModuleTree moduleFactory", moduleFactory);
 		if (!moduleFactory) {
 			return callback(
 				new WebpackError(
@@ -2139,6 +2138,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 				? optionsOrName
 				: { name: optionsOrName };
 
+		console.log("addEntry", entry);
 		// 存入 this.entryies, 后续构建 chunk 遍历的是该 map 对象
 		this._addEntryItem(context, entry, "dependencies", options, callback);
 	}
@@ -2209,7 +2209,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			}
 		}
 
-		// TODO: entry 的加载
+		// entry 的加载
 		this.hooks.addEntry.call(entry, options);
 
 		this.addModuleTree(
@@ -2811,6 +2811,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 	 * @param {Callback} callback signals when the call finishes
 	 * @returns {void}
 	 */
+	//  该函数会创建 chunks、为每个 chunk 进行 codeGeneration，然后为每个 chunk 创建 asset
 	seal(callback) {
 		const finalCallback = err => {
 			this.factorizeQueue.clear();
@@ -2822,6 +2823,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 		};
 		//步骤一： 遍历 compilation.modules ，记录下模块与 chunk 关系
 		// 构建本次编译的 ChunkGraph 对象
+		console.log("开始 seal");
 		const chunkGraph = new ChunkGraph(
 			this.moduleGraph,
 			this.outputOptions.hashFunction
@@ -2838,6 +2840,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 
 		// 步骤二： 触发各种模块优化钩子，这一步优化的主要是模块依赖关系
 		this.logger.time("optimize dependencies");
+		// 更新 moduleGraph
 		while (this.hooks.optimizeDependencies.call(this.modules)) {
 			/* empty */
 		}
@@ -2850,8 +2853,9 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 
 		//步骤三： 遍历 module 构建 chunk 集合
 		/** @type {Map<Entrypoint, Module[]>} */
+
+		//
 		const chunkGraphInit = new Map();
-		// 遍历 compilation.modules 集合，将 module 按 entry/动态引入 的规则分配给不同的 Chunk 对象；
 		for (const [name, { dependencies, includeDependencies, options }] of this.entries) {
 			const chunk = this.addChunk(name);
 			if (options.filename) {
@@ -2868,10 +2872,14 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			connectChunkGroupAndChunk(entrypoint, chunk);
 
 			const entryModules = new Set();
+
+			// 开始从入口文件开始处理
 			for (const dep of [...this.globalEntry.dependencies, ...dependencies]) {
 				entrypoint.addOrigin(null, { name }, /** @type {any} */ (dep).request);
 
 				const module = this.moduleGraph.getModule(dep);
+
+				// 加入 chunkGraphInit、entryModules
 				if (module) {
 					chunkGraph.connectChunkAndEntryModule(chunk, module, entrypoint);
 					entryModules.add(module);
@@ -2906,6 +2914,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			}
 		}
 		const runtimeChunks = new Set();
+		// outer 处理
 		outer: for (const [
 			name,
 			{
@@ -3062,6 +3071,7 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 					this.hooks.beforeCodeGeneration.call();
 
 					// 生成代码
+					// 为每个 chunk 进行 codeGeneration
 					this.codeGeneration(err => {
 						if (err) {
 							return finalCallback(err);

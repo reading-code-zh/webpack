@@ -1164,7 +1164,6 @@ ${other}`);
 		this.hooks.beforeCompile.callAsync(params, err => {
 			if (err) return callback(err);
 
-			// TODO:
 			this.hooks.compile.call(params);
 
 			//创建构建实例，构建过程的内容都会保存在compilation中

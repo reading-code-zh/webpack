@@ -25,6 +25,8 @@ class RuntimeChunkPlugin {
 			compilation.hooks.addEntry.tap(
 				"RuntimeChunkPlugin",
 				(_, { name: entryName }) => {
+					console.log("RuntimeChunkPlugin", entryName);
+
 					if (entryName === undefined) return;
 					const data = compilation.entries.get(entryName);
 					if (data.options.runtime === undefined && !data.options.dependOn) {
