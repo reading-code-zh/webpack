@@ -16,6 +16,7 @@ const Queue = require("./util/Queue");
 /** @typedef {import("./ExportsInfo")} ExportsInfo */
 /** @typedef {import("./Module")} Module */
 
+// ESM 风格的 export 语句都会记录在 ModuleGraph 体系内
 class FlagDependencyExportsPlugin {
 	/**
 	 * Apply the plugin

@@ -24,6 +24,7 @@ const { getEntryRuntime, mergeRuntimeOwned } = require("./util/runtime");
 
 const { NO_EXPORTS_REFERENCED, EXPORTS_OBJECT_REFERENCED } = Dependency;
 
+// 标记模块导出，是否被其他模块使用，tree shake
 class FlagDependencyUsagePlugin {
 	/**
 	 * @param {boolean} global do a global analysis instead of per runtime

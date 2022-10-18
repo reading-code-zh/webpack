@@ -2821,6 +2821,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 			return callback(err);
 		};
 		//步骤一： 遍历 compilation.modules ，记录下模块与 chunk 关系
+		// 构建本次编译的 ChunkGraph 对象
 		const chunkGraph = new ChunkGraph(
 			this.moduleGraph,
 			this.outputOptions.hashFunction
@@ -2850,6 +2851,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 		//步骤三： 遍历 module 构建 chunk 集合
 		/** @type {Map<Entrypoint, Module[]>} */
 		const chunkGraphInit = new Map();
+		// 遍历 compilation.modules 集合，将 module 按 entry/动态引入 的规则分配给不同的 Chunk 对象；
 		for (const [name, { dependencies, includeDependencies, options }] of this.entries) {
 			const chunk = this.addChunk(name);
 			if (options.filename) {
@@ -3095,7 +3097,7 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 							this.clearAssets();
 
 							this.hooks.beforeModuleAssets.call();
-							// module 转为静态文件
+							// 遍历 module/chunk ，调用 compilation.emitAssets 方法将资 assets 信息记录到 compilation.assets 对象中
 							this.createModuleAssets();
 							this.logger.timeEnd("module assets");
 
@@ -3425,6 +3427,7 @@ Or do you want to use the entrypoints '${name}' and '${runtime}' independently o
 	 * @param {Iterable<Chunk>=} options.chunkGraphEntries chunkGraphEntries
 	 * @returns {void}
 	 */
+	// 处理运行时的变量
 	processRuntimeRequirements({
 		chunkGraph = this.chunkGraph,
 		modules = this.modules,
@@ -4693,6 +4696,8 @@ This prevents using hashes of each other and should be avoided.`);
 										}
 									}
 								}
+
+								// 调用 compiler.emitAssets 函数，函数内部调用 compiler.outputFileSystem.writeFile 方法将 assets 集合写入文件系统
 								this.emitAsset(file, source, assetInfo);
 								if (fileManifest.auxiliary) {
 									chunk.auxiliaryFiles.add(file);

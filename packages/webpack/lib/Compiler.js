@@ -589,6 +589,7 @@ class Compiler {
 	 * @param {Callback<void>} callback signals when the assets are emitted
 	 * @returns {void}
 	 */
+	// 输出文件，并写入缓存
 	emitAssets(compilation, callback) {
 		let outputPath;
 
