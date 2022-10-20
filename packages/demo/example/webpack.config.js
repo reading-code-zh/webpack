@@ -3,11 +3,8 @@ const { resolve } = require('path');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 
 module.exports = {
-  mode: "production",
-  entry: {
-    main: {import: resolve("src/index.js"),dependOn: 'shared'},
-    shared: ['lodash']
-  },
+  mode: "development",
+  entry: "./src/index.js",
   output: {
     filename: '[name].buildle.js',
     clean: true

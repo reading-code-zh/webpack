@@ -1,7 +1,6 @@
 import {a,b} from './index2'
-import _ from 'lodash'
-console.log(_.join('hello', 'index.js'))
 
+// eslint-disable-next-line no-unused-vars
 const c = b
 
 /*#__PURE__*/ console.log('000');
