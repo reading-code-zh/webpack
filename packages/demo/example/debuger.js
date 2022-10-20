@@ -3,14 +3,16 @@ const config = require('./webpack.config')
 const cp = require('child_process');
 
 // 删除 dist
-cp.spawnSync('rm',['-rf', './dist'])
+// cp.spawnSync('rm',['-rf', './dist'])
 
 const compiler = webpack(config, (err, stats) => { // [Stats Object](#stats-object)
 
   if (err || stats.hasErrors()) {
     // [在这里处理错误](#error-handling)
 
-    console.log(err);
+    console.log('err',err);
+
+    return
   }
   // process.stdout.write(stats.toString() + '\n');
 
