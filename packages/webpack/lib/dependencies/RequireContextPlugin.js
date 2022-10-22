@@ -76,6 +76,8 @@ class RequireContextPlugin {
 							newItems = [];
 							for (const item of items) {
 								const { request, context } = item;
+						debugger
+
 								for (const ext of finalResolveOptions.extensions) {
 									if (request.endsWith(ext)) {
 										newItems.push({

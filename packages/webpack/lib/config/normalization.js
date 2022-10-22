@@ -118,6 +118,8 @@ const getNormalizedWebpackOptions = config => {
 		amd: config.amd,
 		bail: config.bail,
 		cache: optionalNestedConfig(config.cache, cache => {
+
+			debugger
 			if (cache === false) return false;
 			if (cache === true) {
 				return {
@@ -127,6 +129,7 @@ const getNormalizedWebpackOptions = config => {
 			}
 			switch (cache.type) {
 				case "filesystem":
+					debugger
 					return {
 						type: "filesystem",
 						allowCollectingMemory: cache.allowCollectingMemory,

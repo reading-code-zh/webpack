@@ -928,6 +928,7 @@ Add the extension to the request.`
 											/(\.[^.]+)(\?|$)/,
 											"$2"
 										);
+										debugger
 										if (resolver.options.extensions.has(match[1])) {
 											hint = `Did you mean '${fixedRequest}'?`;
 										} else {

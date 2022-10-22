@@ -1,4 +1,4 @@
-import {a,b} from './index2'
+import {a,b} from '@/index2'
 
 // eslint-disable-next-line no-unused-vars
 const c = b

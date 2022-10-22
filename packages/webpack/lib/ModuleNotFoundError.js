@@ -55,6 +55,7 @@ class ModuleNotFoundError extends WebpackError {
 		if (match) {
 			const request = match[1];
 			const alias = previouslyPolyfilledBuiltinModules[request];
+			debugger
 			if (alias) {
 				const pathIndex = alias.indexOf("/");
 				const dependency = pathIndex > 0 ? alias.slice(0, pathIndex) : alias;

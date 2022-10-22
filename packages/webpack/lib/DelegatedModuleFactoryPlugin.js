@@ -17,15 +17,21 @@ class DelegatedModuleFactoryPlugin {
 	constructor(options) {
 		this.options = options;
 		options.type = options.type || "require";
+		debugger
+
 		options.extensions = options.extensions || ["", ".js", ".json", ".wasm"];
 	}
 
 	apply(normalModuleFactory) {
+		debugger
+
 		const scope = this.options.scope;
 		if (scope) {
 			normalModuleFactory.hooks.factorize.tapAsync(
 				"DelegatedModuleFactoryPlugin",
 				(data, callback) => {
+					debugger
+
 					const [dependency] = data.dependencies;
 					const { request } = dependency;
 					if (request && request.startsWith(`${scope}/`)) {
@@ -44,6 +50,7 @@ class DelegatedModuleFactoryPlugin {
 								)
 							);
 						}
+						debugger
 						for (let i = 0; i < this.options.extensions.length; i++) {
 							const extension = this.options.extensions[i];
 							const requestPlusExt = innerRequest + extension;

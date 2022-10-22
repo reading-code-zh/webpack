@@ -32,6 +32,7 @@ class DelegatedPlugin {
 		);
 
 		compiler.hooks.compile.tap("DelegatedPlugin", ({ normalModuleFactory }) => {
+			debugger
 			new DelegatedModuleFactoryPlugin({
 				associatedObjectForCache: compiler.root,
 				...this.options

@@ -10,6 +10,13 @@ module.exports = {
     clean: true
 
   },
+  resolve: {
+    alias: {
+        '@': resolve(__dirname, 'src'),
+    },
+  extensions: ['.js', '.json'],
+
+  },
   cache: false,
   optimization: {
     usedExports: true,// 是否启用标记
