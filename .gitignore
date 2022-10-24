@@ -56,6 +56,7 @@ packages/**/*.map
 packages/**/lib
 # packages/example
 !packages/webpack/lib
+!packages/webpack-dev-server/lib
 
 packages/**/yarn.lock
 
