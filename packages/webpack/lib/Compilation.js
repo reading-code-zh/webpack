@@ -2086,7 +2086,7 @@ BREAKING CHANGE: Asset processing hooks in Compilation has been merged into a si
 
 		// TODO: 明天
 		const Dep = /** @type {DepConstructor} */ (dependency.constructor);
-
+		debugger
 		console.log("addModuleTree Dep", Dep.name);
 		// 获取在 EntryPlugin 存入的 dependencyFactories 中的 moduleFactory
 		const moduleFactory = this.dependencyFactories.get(Dep);

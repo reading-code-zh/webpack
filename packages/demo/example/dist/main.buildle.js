@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-eval("/* harmony import */ var _index2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/index2 */ \"./src/index2.js\");\n\n\n// eslint-disable-next-line no-unused-vars\nconst c = _index2__WEBPACK_IMPORTED_MODULE_0__.b\n\n/*#__PURE__*/ console.log('000');\nconsole.log(_index2__WEBPACK_IMPORTED_MODULE_0__.a);\nconsole.log(9999);\n\n\n\n//# sourceURL=webpack://example/./src/index.js?");
+eval("/* harmony import */ var _index2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/index2 */ \"./src/index2.js\");\n\n\n// eslint-disable-next-line no-unused-vars\nconst c = _index2__WEBPACK_IMPORTED_MODULE_0__.b\n\n/*#__PURE__*/ console.log('000');\nconsole.log(_index2__WEBPACK_IMPORTED_MODULE_0__.a);\nconsole.log(1111);\n\n\n\n//# sourceURL=webpack://example/./src/index.js?");
 
 /***/ }),
 

@@ -10,6 +10,12 @@ module.exports = {
     clean: true
 
   },
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 200,
+    poll: 1000,
+    stdin: true,
+  },
   resolve: {
     alias: {
         '@': resolve(__dirname, 'src'),
