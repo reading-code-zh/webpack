@@ -324,6 +324,7 @@ module.exports = class ContextModuleFactory extends ModuleFactory {
 					processedFiles.filter(p => p.indexOf(".") !== 0),
 					(segment, callback) => {
 						const subResource = join(fs, directory, segment);
+						debugger
 
 						if (!exclude || !subResource.match(exclude)) {
 							fs.stat(subResource, (err, stat) => {

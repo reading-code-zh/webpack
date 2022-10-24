@@ -1821,6 +1821,7 @@ const GROUP_PATH_REGEXP = /(.+)[/\\][^/\\]+?(?:\?|(?: \+ \d+ modules?)?$)/;
 const ASSETS_GROUPERS = {
 	_: (groupConfigs, context, options) => {
 		const groupByFlag = (name, exclude) => {
+			debugger
 			groupConfigs.push({
 				getKeys: asset => {
 					return asset[name] ? ["1"] : undefined;

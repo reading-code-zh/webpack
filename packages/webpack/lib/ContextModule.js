@@ -202,6 +202,7 @@ class ContextModule extends Module {
 				false
 			)}`;
 		}
+		debugger
 		if (this.options.exclude) {
 			identifier += `|exclude: ${this._prettyRegExp(
 				this.options.exclude,
@@ -273,6 +274,8 @@ class ContextModule extends Module {
 		if (this.options.include) {
 			identifier += ` include: ${this._prettyRegExp(this.options.include)}`;
 		}
+		debugger
+
 		if (this.options.exclude) {
 			identifier += ` exclude: ${this._prettyRegExp(this.options.exclude)}`;
 		}
@@ -348,6 +351,8 @@ class ContextModule extends Module {
 		if (this.options.include) {
 			identifier += ` include: ${this._prettyRegExp(this.options.include)}`;
 		}
+		debugger
+
 		if (this.options.exclude) {
 			identifier += ` exclude: ${this._prettyRegExp(this.options.exclude)}`;
 		}

@@ -19,6 +19,7 @@ class UseEffectRulePlugin {
 		ruleSetCompiler.hooks.rule.tap(
 			"UseEffectRulePlugin",
 			(path, rule, unhandledProperties, result, references) => {
+
 				const conflictWith = (property, correctProperty) => {
 					if (unhandledProperties.has(property)) {
 						throw ruleSetCompiler.error(

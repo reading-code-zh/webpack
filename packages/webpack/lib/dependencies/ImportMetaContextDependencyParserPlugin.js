@@ -105,6 +105,8 @@ module.exports = class ImportMetaContextDependencyParserPlugin {
 								break;
 							}
 							case "exclude": {
+					debugger
+
 								const regExpExpr = parser.evaluateExpression(
 									/** @type {ExpressionNode} */ (prop.value)
 								);

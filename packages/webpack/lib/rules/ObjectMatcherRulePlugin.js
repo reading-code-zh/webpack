@@ -23,6 +23,7 @@ class ObjectMatcherRulePlugin {
 		ruleSetCompiler.hooks.rule.tap(
 			"ObjectMatcherRulePlugin",
 			(path, rule, unhandledProperties, result) => {
+
 				if (unhandledProperties.has(ruleProperty)) {
 					unhandledProperties.delete(ruleProperty);
 					const value = rule[ruleProperty];

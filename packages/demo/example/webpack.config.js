@@ -1,6 +1,8 @@
 // const TerserPlugin = require("terser-webpack-plugin");
 const { resolve } = require('path');
+// eslint-disable-next-line node/no-missing-require
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   mode: "development",
@@ -22,6 +24,14 @@ module.exports = {
     },
   extensions: ['.js', '.json'],
 
+  },
+  module: {
+    rules: [{
+        test: /\.js$/,
+        // exclude: /node_modules/,
+        include: path.join(__dirname, './src1'),
+        use: ['babel-loader']
+    }]
   },
   cache: false,
   optimization: {

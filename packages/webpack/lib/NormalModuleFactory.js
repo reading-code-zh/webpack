@@ -234,6 +234,7 @@ class NormalModuleFactory extends ModuleFactory {
 			)
 		});
 		this.resolverFactory = resolverFactory;
+		debugger
 		this.ruleSet = ruleSetCompiler.compile([
 			{
 				rules: options.defaultRules

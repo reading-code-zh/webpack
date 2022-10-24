@@ -308,6 +308,7 @@ class NormalModule extends Module {
 		/** @type {string | undefined} */
 		this.matchResource = matchResource;
 		/** @type {LoaderItem[]} */
+		debugger
 		this.loaders = loaders;
 		if (resolveOptions !== undefined) {
 			// already declared in super class

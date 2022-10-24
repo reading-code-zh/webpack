@@ -161,6 +161,8 @@ class ImportParserPlugin {
 							)
 						);
 					} else {
+					debugger
+
 						exclude = new RegExp(importOptions.webpackExclude);
 					}
 				}

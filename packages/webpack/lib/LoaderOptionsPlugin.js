@@ -43,9 +43,11 @@ class LoaderOptionsPlugin {
 	apply(compiler) {
 		const options = this.options;
 		compiler.hooks.compilation.tap("LoaderOptionsPlugin", compilation => {
+			debugger
 			NormalModule.getCompilationHooks(compilation).loader.tap(
 				"LoaderOptionsPlugin",
 				(context, module) => {
+					debugger
 					const resource = module.resource;
 					if (!resource) return;
 					const i = resource.indexOf("?");
@@ -55,6 +57,8 @@ class LoaderOptionsPlugin {
 							i < 0 ? resource : resource.slice(0, i)
 						)
 					) {
+		debugger
+
 						for (const key of Object.keys(options)) {
 							if (key === "include" || key === "exclude" || key === "test") {
 								continue;

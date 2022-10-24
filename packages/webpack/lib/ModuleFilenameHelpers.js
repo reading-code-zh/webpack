@@ -268,6 +268,8 @@ ModuleFilenameHelpers.matchObject = (obj, str) => {
 			return false;
 		}
 	}
+	debugger
+
 	if (obj.exclude) {
 		if (ModuleFilenameHelpers.matchPart(str, obj.exclude)) {
 			return false;
