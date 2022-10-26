@@ -2539,7 +2539,7 @@ class WebpackCLI implements IWebpackCLI {
       options.watch = true;
     }
     console.log("createCompiler", options, isWatchCommand);
-    //解析： 知乎 后天
+    //解析
     compiler = await this.createCompiler(options as WebpackDevServerOptions, callback);
 
     if (!compiler) {
