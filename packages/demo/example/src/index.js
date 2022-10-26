@@ -6,5 +6,5 @@ const c = b
 
 /*#__PURE__*/ console.log('000');
 console.log(a);
-console.log(1111);
+console.log(2222);
 

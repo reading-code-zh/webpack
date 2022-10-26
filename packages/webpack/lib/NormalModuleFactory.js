@@ -617,6 +617,7 @@ class NormalModuleFactory extends ModuleFactory {
 							continueCallback(err);
 						}
 					);
+					// debugger
 					this.resolveRequestArray(
 						contextInfo,
 						this.context,

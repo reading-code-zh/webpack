@@ -1,8 +1,11 @@
 // const TerserPlugin = require("terser-webpack-plugin");
 const { resolve } = require('path');
-// eslint-disable-next-line node/no-missing-require
+
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 const path = require('path')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("../../webpack/lib/container/ModuleFederationPlugin");
+
 
 module.exports = {
   mode: "development",
@@ -10,9 +13,8 @@ module.exports = {
   output: {
     filename: '[name].buildle.js',
     clean: true
-
   },
-  watch: true,
+  watch: true,// 是否监听
   watchOptions: {
     aggregateTimeout: 200,
     poll: 1000,
@@ -22,8 +24,7 @@ module.exports = {
     alias: {
         '@': resolve(__dirname, 'src'),
     },
-  extensions: ['.js', '.json'],
-
+    extensions: ['.js', '.json'],
   },
   module: {
     rules: [{
@@ -61,6 +62,19 @@ module.exports = {
     }
   },
   plugins: [
+    // new ModuleFederationPlugin({
+    //   name: 'empBase',
+    //   library: { type: 'var', name: 'empBase' },
+    //   filename: 'emp.js',
+    //   remotes: {
+    //     app_two: "app_two_remote",
+    //     app_three: "app_three_remote"
+    //   },
+    //   exposes: {
+
+    //   },
+    //   shared: []
+    // }),
     new SpeedMeasurePlugin()
   ]
 };

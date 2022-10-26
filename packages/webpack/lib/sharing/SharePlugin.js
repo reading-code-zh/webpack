@@ -78,6 +78,7 @@ class SharePlugin {
 	 * @returns {void}
 	 */
 	apply(compiler) {
+		debugger
 		new ConsumeSharedPlugin({
 			shareScope: this._shareScope,
 			consumes: this._consumes

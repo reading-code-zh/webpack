@@ -54,6 +54,7 @@ class ModuleFederationPlugin {
 			compiler.options.output.enabledLibraryTypes.push(library.type);
 		}
 		compiler.hooks.afterPlugins.tap("ModuleFederationPlugin", () => {
+		debugger
 			if (
 				options.exposes &&
 				(Array.isArray(options.exposes)

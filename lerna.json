@@ -1,6 +1,7 @@
 {
-  "lerna": "3.20.2",
-  "packages": ["packages/*"],
+  "packages": [
+    "./packages/*"
+  ],
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
@@ -8,7 +9,10 @@
     "version": {
       "message": "chore(release): publish new version",
       "conventionalCommits": true,
-      "allowBranch": ["master", "next"]
+      "allowBranch": [
+        "master",
+        "next"
+      ]
     }
   }
 }

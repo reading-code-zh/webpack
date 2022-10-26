@@ -122,7 +122,6 @@ const webpack = /** @type {WebpackFunctionSingle & WebpackFunctionMulti} */ (
 	(options, callback) => {
 		console.log("webpack start", options, "callback", callback);
 		const create = () => {
-			debugger
 			if (!asArray(options).every(webpackOptionsSchemaCheck)) {
 				getValidateSchema()(webpackOptionsSchema, options);
 				util.deprecate(
@@ -134,6 +133,7 @@ const webpack = /** @type {WebpackFunctionSingle & WebpackFunctionMulti} */ (
 			/** @type {MultiCompiler|Compiler} */
 			let compiler;
 			let watch = false;
+			debugger
 			/** @type {WatchOptions|WatchOptions[]} */
 			let watchOptions;
 			if (Array.isArray(options)) {
