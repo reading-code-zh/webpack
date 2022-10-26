@@ -9,7 +9,7 @@ const App = (props) => {
       textAlign:"center",
       backgroundColor:"cyan"
     }}>
-      <h1 >App 2</h1>
+      <h1 >App 2 ---data:{props.data}</h1>
     </div>
   )
 }

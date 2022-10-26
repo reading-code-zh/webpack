@@ -65,7 +65,7 @@ class RuleSetCompiler {
 	 */
 	compile(ruleSet) {
 		const refs = new Map();
-		debugger
+		// debugger
 		const rules = this.compileRules("ruleSet", ruleSet, refs);
 
 		/**
